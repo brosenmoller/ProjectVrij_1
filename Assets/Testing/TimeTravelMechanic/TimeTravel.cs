@@ -27,6 +27,7 @@ public class TimeTravel : MonoBehaviour
 
         if (Physics.CheckSphere(targetWorld.position + playerRelativePosition, .2f, notPlayerLayer))
         {
+            // Maybe we want some code here to find a valid location nearby, but I just disallow it for now
             Debug.Log("Can't switch now");
         }
         else

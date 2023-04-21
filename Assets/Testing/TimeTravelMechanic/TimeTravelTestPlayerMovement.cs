@@ -13,6 +13,6 @@ public class TimeTravelTestPlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized * speed * Time.deltaTime;
+        rb.velocity = speed * Time.deltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
     }
 }

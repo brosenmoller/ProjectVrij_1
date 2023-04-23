@@ -5,7 +5,6 @@ using UnityEngine;
  * Edited for use of this project. */
 
 [RequireComponent(typeof(CharacterController))]
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float walkingSpeed = 7.5f;
@@ -20,8 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
 
-    [HideInInspector]
-    public bool canMove = true;
+    [HideInInspector] public bool canMove = true;
 
     void Start()
     {

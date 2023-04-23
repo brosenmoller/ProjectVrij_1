@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Base of the PlayerController is from https://sharpcoderblog.com/blog/unity-3d-fps-controller. */
+/* Base of the PlayerController is from https://sharpcoderblog.com/blog/unity-3d-fps-controller.
+ * Edited for use of this project. */
 
 [RequireComponent(typeof(CharacterController))]
 

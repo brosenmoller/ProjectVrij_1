@@ -7,17 +7,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float walkingSpeed = 7.5f;
-    public float runningSpeed = 11.5f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    public Camera playerCamera;
-    public float lookSpeed = 2.0f;
-    public float lookXLimit = 45.0f;
+    [SerializeField] private float walkingSpeed = 7.5f;
+    [SerializeField] private float runningSpeed = 11.5f;
+    [SerializeField] private float jumpSpeed = 8.0f;
+    [SerializeField] private float gravity = 20.0f;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private float lookSpeed = 2.0f;
+    [SerializeField] private float lookXLimit = 45.0f;
 
-    CharacterController characterController;
-    Vector3 moveDirection = Vector3.zero;
-    float rotationX = 0;
+    private CharacterController characterController;
+    private Vector3 moveDirection = Vector3.zero;
+    private float rotationX = 0;
 
     [HideInInspector]
     public bool canMove = true;

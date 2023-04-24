@@ -71,6 +71,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TimeTravel"",
+                    ""type"": ""Button"",
+                    ""id"": ""e371f6b9-a4c0-4395-9203-6d97b3ed375f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""MoveCameraY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""810b1fb6-1b33-4ba2-b200-86f1aeb4840b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeTravel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Sprint = m_PlayerActionMap.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerActionMap_MoveCameraX = m_PlayerActionMap.FindAction("MoveCameraX", throwIfNotFound: true);
         m_PlayerActionMap_MoveCameraY = m_PlayerActionMap.FindAction("MoveCameraY", throwIfNotFound: true);
+        m_PlayerActionMap_TimeTravel = m_PlayerActionMap.FindAction("TimeTravel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Sprint;
     private readonly InputAction m_PlayerActionMap_MoveCameraX;
     private readonly InputAction m_PlayerActionMap_MoveCameraY;
+    private readonly InputAction m_PlayerActionMap_TimeTravel;
     public struct PlayerActionMapActions
     {
         private @PlayerActions m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_PlayerActionMap_Sprint;
         public InputAction @MoveCameraX => m_Wrapper.m_PlayerActionMap_MoveCameraX;
         public InputAction @MoveCameraY => m_Wrapper.m_PlayerActionMap_MoveCameraY;
+        public InputAction @TimeTravel => m_Wrapper.m_PlayerActionMap_TimeTravel;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @MoveCameraY.started += instance.OnMoveCameraY;
             @MoveCameraY.performed += instance.OnMoveCameraY;
             @MoveCameraY.canceled += instance.OnMoveCameraY;
+            @TimeTravel.started += instance.OnTimeTravel;
+            @TimeTravel.performed += instance.OnTimeTravel;
+            @TimeTravel.canceled += instance.OnTimeTravel;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -303,6 +329,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @MoveCameraY.started -= instance.OnMoveCameraY;
             @MoveCameraY.performed -= instance.OnMoveCameraY;
             @MoveCameraY.canceled -= instance.OnMoveCameraY;
+            @TimeTravel.started -= instance.OnTimeTravel;
+            @TimeTravel.performed -= instance.OnTimeTravel;
+            @TimeTravel.canceled -= instance.OnTimeTravel;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -327,5 +356,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnMoveCameraX(InputAction.CallbackContext context);
         void OnMoveCameraY(InputAction.CallbackContext context);
+        void OnTimeTravel(InputAction.CallbackContext context);
     }
 }

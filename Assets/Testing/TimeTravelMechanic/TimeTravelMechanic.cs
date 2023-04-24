@@ -10,6 +10,13 @@ public class TimeTravelMechanic : MonoBehaviour
     [Header("Other Settings")]
     [SerializeField] private LayerMask notPlayerLayer;
 
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
     private void OnEnable()
     {
         GameManager.InputManager.playerInputActions.PlayerActionMap.TimeTravel.performed += TimeTravelPerformed;
@@ -41,7 +48,7 @@ public class TimeTravelMechanic : MonoBehaviour
         else
         {
             transform.parent = targetWorld;
-            transform.localPosition = playerRelativePosition;
+            playerController.WarpPlayer(transform.TransformDirection(playerRelativePosition));
         }
     }
 

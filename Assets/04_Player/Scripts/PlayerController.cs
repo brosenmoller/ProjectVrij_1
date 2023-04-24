@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 /* Base of the PlayerController is from https://sharpcoderblog.com/blog/unity-3d-fps-controller.
@@ -21,7 +20,10 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool canMove = true;
 
-    void Start()
+    private Vector3 warpLocation;
+    private bool warpThisFrame;
+
+    private void Start()
     {
         characterController = GetComponent<CharacterController>();
 
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    private void Update()
     {
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -72,6 +74,21 @@ public class PlayerController : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, GameManager.InputManager.playerInputActions.PlayerActionMap.MoveCameraX.ReadValue<float>() * lookSpeed, 0);
+        }
+    }
+
+    public void WarpPlayer(Vector3 warpLocation)
+    {
+        this.warpLocation = warpLocation;
+        warpThisFrame = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (warpThisFrame)
+        {
+            warpThisFrame = false;
+            transform.position = warpLocation;
         }
     }
 }

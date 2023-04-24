@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class TimeTravel : MonoBehaviour
+public class TimeTravelMechanic : MonoBehaviour
 {
     [Header("Rooms")]
     [SerializeField] private Transform world1;
@@ -9,15 +10,22 @@ public class TimeTravel : MonoBehaviour
     [Header("Other Settings")]
     [SerializeField] private LayerMask notPlayerLayer;
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Transform currentWorld = transform.parent;
+        GameManager.InputManager.playerInputActions.PlayerActionMap.TimeTravel.performed += TimeTravelPerformed;
+    }
 
-            if (currentWorld == world1) { SwitchWorld(world2); }
-            else { SwitchWorld(world1); }
-        }
+    private void OnDisable()
+    {
+        GameManager.InputManager.playerInputActions.PlayerActionMap.TimeTravel.performed -= TimeTravelPerformed;
+    }
+
+    private void TimeTravelPerformed(InputAction.CallbackContext callbackContext)
+    {
+        Transform currentWorld = transform.parent;
+
+        if (currentWorld == world1) { SwitchWorld(world2); }
+        else { SwitchWorld(world1); }
     }
 
     private void SwitchWorld(Transform targetWorld)

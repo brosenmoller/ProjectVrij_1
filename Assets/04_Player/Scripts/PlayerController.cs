@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.ReadValue<bool>() && canMove && characterController.isGrounded)
+        if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.WasPressedThisFrame() && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
         }

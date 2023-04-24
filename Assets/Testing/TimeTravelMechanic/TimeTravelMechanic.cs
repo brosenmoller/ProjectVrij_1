@@ -7,7 +7,9 @@ public class TimeTravelMechanic : MonoBehaviour
     [SerializeField] private Transform world1;
     [SerializeField] private Transform world2;
 
-    [Header("Other Settings")]
+    [Header("Collision Check Settings")]
+    [SerializeField] private float checkHeight;
+    [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask notPlayerLayer;
 
     private PlayerController playerController;
@@ -38,9 +40,8 @@ public class TimeTravelMechanic : MonoBehaviour
     private void SwitchWorld(Transform targetWorld)
     {
         Vector3 playerRelativePosition = transform.localPosition;
-        
 
-        if (Physics.CheckSphere(targetWorld.position + playerRelativePosition, .2f, notPlayerLayer))
+        if (Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer))
         {
             // Maybe we want some code here to find a valid location nearby, but I just disallow it for now
             Debug.Log("Can't switch now");
@@ -48,14 +49,14 @@ public class TimeTravelMechanic : MonoBehaviour
         else
         {
             transform.parent = targetWorld;
-            playerController.WarpPlayer(transform.TransformDirection(playerRelativePosition));
+            playerController.WarpPlayer(targetWorld.position + playerRelativePosition);
         }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(world1.position + transform.localPosition, .2f);
-        Gizmos.DrawWireSphere(world2.position + transform.localPosition, .2f);
+        Gizmos.DrawWireSphere(world1.position + transform.localPosition + Vector3.up * checkHeight, checkRadius);
+        Gizmos.DrawWireSphere(world2.position + transform.localPosition + Vector3.up * checkHeight, checkRadius);
     }
 }

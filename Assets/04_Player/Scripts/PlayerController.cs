@@ -34,6 +34,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (warpThisFrame)
+        {
+            warpThisFrame = false;
+            transform.position = warpLocation;
+            Physics.SyncTransforms();
+        }
+
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -81,14 +88,5 @@ public class PlayerController : MonoBehaviour
     {
         this.warpLocation = warpLocation;
         warpThisFrame = true;
-    }
-
-    private void LateUpdate()
-    {
-        if (warpThisFrame)
-        {
-            warpThisFrame = false;
-            transform.position = warpLocation;
-        }
     }
 }

@@ -321,6 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world1: {fileID: 0}
   world2: {fileID: 0}
+  checkHeight: 1
+  checkRadius: 0.49
   notPlayerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1

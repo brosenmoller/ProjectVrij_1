@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         Vector2 inputDirection = GameManager.InputManager.playerInputActions.PlayerActionMap.Walk.ReadValue<Vector2>();
 
         // Press Left Shift to run
-        bool isRunning = GameManager.InputManager.playerInputActions.PlayerActionMap.Sprint.ReadValue<bool>();
+        bool isRunning = GameManager.InputManager.playerInputActions.PlayerActionMap.Sprint.IsPressed();
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * inputDirection.y : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * inputDirection.x : 0;
         float movementDirectionY = moveDirection.y;

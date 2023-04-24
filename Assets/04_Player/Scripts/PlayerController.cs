@@ -20,9 +20,6 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool canMove = true;
 
-    private Vector3 warpLocation;
-    private bool warpThisFrame;
-
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -34,13 +31,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (warpThisFrame)
-        {
-            warpThisFrame = false;
-            transform.position = warpLocation;
-            Physics.SyncTransforms();
-        }
-
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -86,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     public void WarpPlayer(Vector3 warpLocation)
     {
-        this.warpLocation = warpLocation;
-        warpThisFrame = true;
+        transform.position = warpLocation;
+        Physics.SyncTransforms();
     }
 }

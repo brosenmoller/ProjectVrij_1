@@ -1,8 +1,5 @@
-﻿// Adapted from Code by Ralf Zeilstra (Game Developer HKU Year 1 in 2022)
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class UIViewManager : Manager
@@ -13,9 +10,10 @@ public class UIViewManager : Manager
     private UIView currentView;
     private readonly Stack<UIView> history = new();
 
-    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => SetupViewDictionary();
+    public override void OnSceneLoad()
+    {
+        SetupViewDictionary();
+    }
 
     private void SetupViewDictionary()
     {

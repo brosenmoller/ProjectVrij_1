@@ -12,11 +12,11 @@ public class TimeTravelMechanic : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask notPlayerLayer;
 
-    private PlayerController playerController;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
-        playerController = GetComponent<PlayerController>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void OnEnable()
@@ -49,7 +49,7 @@ public class TimeTravelMechanic : MonoBehaviour
         else
         {
             transform.parent = targetWorld;
-            playerController.WarpPlayer(targetWorld.position + playerRelativePosition);
+            playerMovement.WarpPlayer(targetWorld.position + playerRelativePosition);
         }
     }
 

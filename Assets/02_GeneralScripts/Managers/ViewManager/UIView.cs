@@ -1,6 +1,4 @@
-﻿// Adapted from Code by Ralf Zeilstra (Game Developer HKU Year 1 in 2022)
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 

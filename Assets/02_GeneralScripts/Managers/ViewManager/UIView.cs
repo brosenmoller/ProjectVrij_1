@@ -16,7 +16,7 @@ public abstract class UIView : MonoBehaviour
     }
     public virtual void Show()
     {
-        if (primarySelectable != null) EventSystem.current.SetSelectedGameObject(primarySelectable.gameObject);
+        if (primarySelectable != null) { EventSystem.current.SetSelectedGameObject(primarySelectable.gameObject); }
         gameObject.SetActive(true);
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,12 @@ public class TimeTravelMechanic : MonoBehaviour
     [SerializeField] private float checkHeight;
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask notPlayerLayer;
+
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI pastOrFutureText;
+
+    private const string PAST_TEXT = "Past";
+    private const string FUTURE_TEXT = "Future";
 
     private PlayerMovement playerMovement;
 
@@ -41,20 +48,24 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         Vector3 playerRelativePosition = transform.localPosition;
 
-        if (Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer))
-        {
-            // Maybe we want some code here to find a valid location nearby, but I just disallow it for now
-            Debug.Log("Can't switch now");
-        }
-        else
+        if (!Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer))
         {
             transform.parent = targetWorld;
             playerMovement.WarpPlayer(targetWorld.position + playerRelativePosition);
+
+            if (targetWorld ==  world1) { pastOrFutureText.text = PAST_TEXT; }
+            else { pastOrFutureText.text = FUTURE_TEXT; }
+        }
+        else
+        {
+            Debug.Log("Can't switch now");
         }
     }
 
     private void OnDrawGizmos()
     {
+        if (world1 == null || world2 == null) { return; }
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(world1.position + transform.localPosition + Vector3.up * checkHeight, checkRadius);
         Gizmos.DrawWireSphere(world2.position + transform.localPosition + Vector3.up * checkHeight, checkRadius);

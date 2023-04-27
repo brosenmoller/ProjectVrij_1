@@ -6,7 +6,7 @@ public class PlayerInteractionDetector : MonoBehaviour
 {
     [SerializeField] private float  lookRange = 5f;
 
-    private Camera camera;
+    private Camera _camera;
 
     private void Awake()
     {

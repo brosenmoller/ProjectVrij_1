@@ -10,7 +10,7 @@ public class PlayerInteractionDetector : MonoBehaviour
 
     private void Awake()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class PlayerInteractionDetector : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, lookRange))
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, lookRange))
         {
             InteractableObject interactableObject = hit.transform.gameObject.GetComponent<InteractableObject>();
 

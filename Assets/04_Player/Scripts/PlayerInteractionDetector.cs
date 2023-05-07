@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInteractionDetector : MonoBehaviour
 {
+    public TMPro.TextMeshProUGUI uiInteractionDescText;
+
     [SerializeField] private float  lookRange = 5f;
 
     private Camera _camera;
@@ -22,7 +24,9 @@ public class PlayerInteractionDetector : MonoBehaviour
         }
         else
         {
-            RaycastForInteractableObject()?.Highlight();
+            InteractableObject currentInteractableObject = RaycastForInteractableObject();
+            currentInteractableObject?.Highlight();
+            uiInteractionDescText.text = currentInteractableObject?.interactionDescription;
         }
     }
 

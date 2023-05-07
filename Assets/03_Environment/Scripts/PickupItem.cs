@@ -8,6 +8,14 @@ public class PickupItem : InteractableObject
 
     public override void Interact()
     {
-        throw new System.NotImplementedException();
+        if(pickUpItem == null)
+        {
+            Debug.LogWarning("No Item is set for this Pickup: " + this.gameObject.name);
+        }
+
+        //PlayerInventory.AddItem(pickUpItem);
+
+
+        this.gameObject.SetActive(false);
     }
 }

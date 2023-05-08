@@ -31,4 +31,17 @@ public class PlayerInventory : MonoBehaviour
     {
         return item != null && items.Contains(item);
     }
+
+    public bool HasItems(Item[] items)
+    {
+        foreach (Item item in items)
+        {
+            if (!HasItem(item)) 
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

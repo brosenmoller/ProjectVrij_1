@@ -35,6 +35,60 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""f57d59d0-7274-4a3b-b7b6-73fe4712aadf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce597d36-1b48-4ebe-aa9a-4ca01d53f7eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveCameraX"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c5998561-2ef5-40bc-b8be-af45833e6018"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveCameraY"",
+                    ""type"": ""Value"",
+                    ""id"": ""ac5fa7aa-7bb3-418b-8266-a3588d3b61d8"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TimeTravel"",
+                    ""type"": ""Button"",
+                    ""id"": ""e371f6b9-a4c0-4395-9203-6d97b3ed375f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ec1f929-fb0f-44bd-b1a7-ec6660530d66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +146,72 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b00f6948-f2b8-4cdd-a21a-408b38a1b17f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e45bf57-3cc2-450e-af79-f03a90f3a779"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e34d180-fcdc-4687-9c1c-4676a89790a1"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCameraX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b0baaff-a76c-4866-af95-3ad5601093ff"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCameraY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""810b1fb6-1b33-4ba2-b200-86f1aeb4840b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeTravel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f807686b-50af-47ce-ac97-0fcc01780d97"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +221,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         // PlayerActionMap
         m_PlayerActionMap = asset.FindActionMap("PlayerActionMap", throwIfNotFound: true);
         m_PlayerActionMap_Walk = m_PlayerActionMap.FindAction("Walk", throwIfNotFound: true);
+        m_PlayerActionMap_Jump = m_PlayerActionMap.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerActionMap_Sprint = m_PlayerActionMap.FindAction("Sprint", throwIfNotFound: true);
+        m_PlayerActionMap_MoveCameraX = m_PlayerActionMap.FindAction("MoveCameraX", throwIfNotFound: true);
+        m_PlayerActionMap_MoveCameraY = m_PlayerActionMap.FindAction("MoveCameraY", throwIfNotFound: true);
+        m_PlayerActionMap_TimeTravel = m_PlayerActionMap.FindAction("TimeTravel", throwIfNotFound: true);
+        m_PlayerActionMap_Interact = m_PlayerActionMap.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +289,23 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerActionMap;
     private List<IPlayerActionMapActions> m_PlayerActionMapActionsCallbackInterfaces = new List<IPlayerActionMapActions>();
     private readonly InputAction m_PlayerActionMap_Walk;
+    private readonly InputAction m_PlayerActionMap_Jump;
+    private readonly InputAction m_PlayerActionMap_Sprint;
+    private readonly InputAction m_PlayerActionMap_MoveCameraX;
+    private readonly InputAction m_PlayerActionMap_MoveCameraY;
+    private readonly InputAction m_PlayerActionMap_TimeTravel;
+    private readonly InputAction m_PlayerActionMap_Interact;
     public struct PlayerActionMapActions
     {
         private @PlayerActions m_Wrapper;
         public PlayerActionMapActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_PlayerActionMap_Walk;
+        public InputAction @Jump => m_Wrapper.m_PlayerActionMap_Jump;
+        public InputAction @Sprint => m_Wrapper.m_PlayerActionMap_Sprint;
+        public InputAction @MoveCameraX => m_Wrapper.m_PlayerActionMap_MoveCameraX;
+        public InputAction @MoveCameraY => m_Wrapper.m_PlayerActionMap_MoveCameraY;
+        public InputAction @TimeTravel => m_Wrapper.m_PlayerActionMap_TimeTravel;
+        public InputAction @Interact => m_Wrapper.m_PlayerActionMap_Interact;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +318,24 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
+            @MoveCameraX.started += instance.OnMoveCameraX;
+            @MoveCameraX.performed += instance.OnMoveCameraX;
+            @MoveCameraX.canceled += instance.OnMoveCameraX;
+            @MoveCameraY.started += instance.OnMoveCameraY;
+            @MoveCameraY.performed += instance.OnMoveCameraY;
+            @MoveCameraY.canceled += instance.OnMoveCameraY;
+            @TimeTravel.started += instance.OnTimeTravel;
+            @TimeTravel.performed += instance.OnTimeTravel;
+            @TimeTravel.canceled += instance.OnTimeTravel;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -187,6 +343,24 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
+            @MoveCameraX.started -= instance.OnMoveCameraX;
+            @MoveCameraX.performed -= instance.OnMoveCameraX;
+            @MoveCameraX.canceled -= instance.OnMoveCameraX;
+            @MoveCameraY.started -= instance.OnMoveCameraY;
+            @MoveCameraY.performed -= instance.OnMoveCameraY;
+            @MoveCameraY.canceled -= instance.OnMoveCameraY;
+            @TimeTravel.started -= instance.OnTimeTravel;
+            @TimeTravel.performed -= instance.OnTimeTravel;
+            @TimeTravel.canceled -= instance.OnTimeTravel;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -207,5 +381,11 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     public interface IPlayerActionMapActions
     {
         void OnWalk(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnMoveCameraX(InputAction.CallbackContext context);
+        void OnMoveCameraY(InputAction.CallbackContext context);
+        void OnTimeTravel(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

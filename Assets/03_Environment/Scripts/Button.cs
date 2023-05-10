@@ -47,7 +47,6 @@ public class Button : InteractableObject
         {
             isEnabled = true;
             automaticDisableTimer.Reset();
-            //StartCoroutine(DisableButtonAfterTime(disableTime));
         }
 
         if (isEnabled)
@@ -58,14 +57,6 @@ public class Button : InteractableObject
         {
             OnDeactivated.Invoke();
         }
-    }
-
-    private IEnumerator DisableButtonAfterTime(float timeToDisable)
-    {
-        yield return new WaitForSeconds(timeToDisable);
-
-        isEnabled = false;
-        OnDeactivated.Invoke();
     }
 
     private void DisableButton()

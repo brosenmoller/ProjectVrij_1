@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static SaveManager SaveManager { get; private set; }
     public static EventManager EventManager { get; private set; }
     public static InputManager InputManager { get; private set; }
+    public static UIViewManager UIViewManager { get; private set; }
 
     private Manager[] activeManagers;
 
@@ -39,13 +40,15 @@ public class GameManager : MonoBehaviour
         SaveManager = new SaveManager();
         EventManager = new EventManager();
         InputManager = new InputManager();
+        UIViewManager = new UIViewManager();
 
         activeManagers = new Manager[] {
             AudioManager,
             TimerManager,
             SaveManager,
             EventManager,
-            InputManager
+            InputManager,
+            UIViewManager
         };
 
         foreach (Manager manager in activeManagers)

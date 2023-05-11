@@ -243,8 +243,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1998790782131026772}
   - component: {fileID: 1998790782131026775}
-  - component: {fileID: 1998790782131026774}
+  - component: {fileID: 310310735894223625}
+  - component: {fileID: 6154808022946632957}
   - component: {fileID: 7866329304558762618}
+  - component: {fileID: 4167257998865379152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -287,7 +289,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1998790782131026774
+--- !u!114 &310310735894223625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +298,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1998790782131026773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07e95e64a973404692713d0073706af, type: 3}
+  m_Script: {fileID: 11500000, guid: 5269715d28122ad418c735d1eb05bbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+--- !u!114 &6154808022946632957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998790782131026773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af240e1835d71074d80529e0b3759b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 7.5
@@ -326,3 +341,17 @@ MonoBehaviour:
   notPlayerLayer:
     serializedVersion: 2
     m_Bits: 1
+  pastOrFutureText: {fileID: 0}
+--- !u!114 &4167257998865379152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998790782131026773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e5364f441005d468356140bd444173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRange: 5

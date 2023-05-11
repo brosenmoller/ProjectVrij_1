@@ -15,6 +15,7 @@ public abstract class InteractableObject : MonoBehaviour
     {
         outline = GetComponent<Outline>();
         playerInventory = FindObjectOfType<PlayerInventory>();
+        RemoveHighlight();
     }
 
     public void Highlight()
@@ -25,10 +26,5 @@ public abstract class InteractableObject : MonoBehaviour
     public void RemoveHighlight()
     {
         outline.enabled = false;
-    }
-
-    private void Update()
-    {
-        RemoveHighlight();
     }
 }

@@ -8,6 +8,8 @@ public class PlayerInteractionDetector : MonoBehaviour
 
     private Camera mainCamera;
 
+    private InteractableObject lastHighlightedInteractableObject = null;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -15,24 +17,25 @@ public class PlayerInteractionDetector : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
+        InteractableObject currentInteractableObject = RaycastForInteractableObject();
+
+        if (lastHighlightedInteractableObject != currentInteractableObject && lastHighlightedInteractableObject != null) 
         {
-            InteractableObject currentInteractableObject = RaycastForInteractableObject();
-            
-            if (currentInteractableObject != null)
+            lastHighlightedInteractableObject.RemoveHighlight();
+            uiInteractionDescText.text = "";
+        }
+
+        if (currentInteractableObject != null)
+        {
+            currentInteractableObject.Highlight();
+            uiInteractionDescText.text = currentInteractableObject.interactionDescription;
+
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
             {
                 currentInteractableObject.Interact();
             }
-        }
-        else
-        {
-            InteractableObject currentInteractableObject = RaycastForInteractableObject();
 
-            if (currentInteractableObject != null)
-            {
-                currentInteractableObject.Highlight();
-                uiInteractionDescText.text = currentInteractableObject.interactionDescription;
-            }
+            lastHighlightedInteractableObject = currentInteractableObject;
         }
     }
 

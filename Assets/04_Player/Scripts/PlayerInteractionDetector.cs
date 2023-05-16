@@ -1,40 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInteractionDetector : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI uiInteractionDescText;
+    [SerializeField] private TextMeshProUGUI uiInteractionDescText;
+    [SerializeField] private float lookRange = 5f;
 
-    [SerializeField] private float  lookRange = 5f;
+    private Camera mainCamera;
 
-    private Camera _camera;
+    private InteractableObject lastHighlightedInteractableObject = null;
 
     private void Awake()
     {
-        _camera = Camera.main;
+        mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
-        if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
+        InteractableObject currentInteractableObject = RaycastForInteractableObject();
+
+        if (lastHighlightedInteractableObject != currentInteractableObject && lastHighlightedInteractableObject != null) 
         {
-            RaycastForInteractableObject()?.Interact();
+            lastHighlightedInteractableObject.RemoveHighlight();
+            uiInteractionDescText.text = "";
         }
-        else
+
+        if (currentInteractableObject != null)
         {
-            InteractableObject currentInteractableObject = RaycastForInteractableObject();
-            currentInteractableObject?.Highlight();
-            uiInteractionDescText.text = currentInteractableObject?.interactionDescription;
+            currentInteractableObject.Highlight();
+            uiInteractionDescText.text = currentInteractableObject.interactionDescription;
+
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
+            {
+                currentInteractableObject.Interact();
+            }
+
+            lastHighlightedInteractableObject = currentInteractableObject;
         }
     }
 
     private InteractableObject RaycastForInteractableObject()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, lookRange))
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit, lookRange))
         {
             InteractableObject interactableObject = hit.transform.gameObject.GetComponent<InteractableObject>();
 

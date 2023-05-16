@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -9,12 +7,15 @@ public abstract class InteractableObject : MonoBehaviour
     public string interactionDescription;
 
     private Outline outline;
+    protected PlayerInventory playerInventory;
 
     public abstract void Interact();
 
-    private void Start()
+    private void Awake()
     {
         outline = GetComponent<Outline>();
+        playerInventory = FindObjectOfType<PlayerInventory>();
+        RemoveHighlight();
     }
 
     public void Highlight()
@@ -25,10 +26,5 @@ public abstract class InteractableObject : MonoBehaviour
     public void RemoveHighlight()
     {
         outline.enabled = false;
-    }
-
-    private void Update()
-    {
-        RemoveHighlight();
     }
 }

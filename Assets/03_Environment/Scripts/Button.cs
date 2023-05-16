@@ -1,35 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Button : InteractableObject
 {
     [Header("Button Settings")]
-    public UnityEvent OnActivated;
-    public UnityEvent OnDeactivated;
+    [SerializeField] private UnityEvent OnActivated;
+    [SerializeField] private UnityEvent OnDeactivated;
 
     [Header("Extra Settings")]
-    [SerializeField] bool disableSwitchAfterActivation;
+    [SerializeField] private bool disableSwitchAfterActivation;
 
-    [SerializeField] bool automaticDisable;
-    [Range(0f, 60f)] [SerializeField] float disableTime;
-    [SerializeField] List<Item> requiredItems;
+    [SerializeField] private bool automaticDisable;
+    [SerializeField, Range(0f, 60f)] private float disableTime;
+    [SerializeField] private Item[] requiredItems;
 
     private bool isEnabled;
     private bool interactable = true;
 
+    private Timer automaticDisableTimer;
+
+    private void Start()
+    {
+        if (automaticDisable)
+        {
+            automaticDisableTimer = new Timer(disableTime, DisableButton, false);
+        }
+    }
+
     public override void Interact()
     {
-        //if(!PlayerInventory.Contains(requiredItems)
-        //{
-        //  return;
-        //}
-        if (!interactable)
-        {
-            return;
-        }
+        if (!playerInventory.HasItems(requiredItems)) { return; }
+        if (!interactable) { return; }
 
         if (disableSwitchAfterActivation)
         {
@@ -44,7 +45,7 @@ public class Button : InteractableObject
         else
         {
             isEnabled = true;
-            StartCoroutine(disableButtonAfterTime(disableTime));
+            automaticDisableTimer.Reset();
         }
 
         if (isEnabled)
@@ -57,10 +58,8 @@ public class Button : InteractableObject
         }
     }
 
-    private IEnumerator disableButtonAfterTime(float timeToDisable)
+    private void DisableButton()
     {
-        yield return new WaitForSeconds(timeToDisable);
-
         isEnabled = false;
         OnDeactivated.Invoke();
     }

@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerInventoryUIView : UIView
+public class PlayerInventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventorySlotPrefab;
-    [SerializeField] private Item testItem;
 
     private readonly Dictionary<Item, GameObject> itemsInSlots = new();
 
@@ -23,9 +22,6 @@ public class PlayerInventoryUIView : UIView
             AddUIItem(item);
         }
     }
-
-    [ContextMenu("Add Test Item")]
-    public void AddTestItem() => AddUIItem(testItem);
 
     public void AddUIItem(Item item)
     {

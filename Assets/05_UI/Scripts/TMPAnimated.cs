@@ -36,7 +36,7 @@ public class TMPAnimated : TextMeshProUGUI
         // check to see if a tag is our own
         bool isCustomTag(string tag)
         {
-            return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("emotion=") || tag.StartsWith("action");
+            return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("action");
         }
 
         // send that string to textmeshpro and hide all of it, then start reading

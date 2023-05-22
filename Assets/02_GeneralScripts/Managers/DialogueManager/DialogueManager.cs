@@ -1,17 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueManager : Manager
 {
     private TMPAnimated dialogueTMPA;
+    private Animator dialogueBoxAnimator;
+    private const string dialogueIsActiveParameter = "dialogueIsActive";
 
     private Queue<string> queuedDialogueData = new();
 
     public override void Setup()
     {
         dialogueTMPA = GameManager.FindObjectOfType<TMPAnimated>();
+        dialogueBoxAnimator = dialogueTMPA.transform.parent.GetComponent<Animator>();
 
+        //TODO: Unsubscribe from this event
         dialogueTMPA.onDialogueFinish.AddListener(StartDialogue);
     }
 
@@ -37,7 +40,16 @@ public class DialogueManager : Manager
 
     private void StartDialogue()
     {
-        if (queuedDialogueData.Count == 0) { return; }
-        dialogueTMPA.ReadText(queuedDialogueData.Dequeue());
+        if (queuedDialogueData.Count == 0) 
+        {
+            dialogueBoxAnimator.SetBool(dialogueIsActiveParameter, false);
+            dialogueTMPA.enabled = false;
+        }
+        else
+        {
+            dialogueBoxAnimator.SetBool(dialogueIsActiveParameter, true);
+            dialogueTMPA.enabled = true;
+            dialogueTMPA.ReadText(queuedDialogueData.Dequeue());
+        }
     }
 }

@@ -12,6 +12,6 @@ public class DialogueData : ScriptableObject
         "'<speed=10>', changed the speed which text is displayed'\n" +
         "'<pause=3>', creates a pause at which the text will stop momentarily\n";
 
-    public AudioClip associatedAudio;
     [TextArea(4, 4)] public List<string> dialogueLines;
+    public List<AudioObject> associatedAudioClips;
 }

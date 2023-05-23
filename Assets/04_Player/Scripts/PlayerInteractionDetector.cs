@@ -32,7 +32,7 @@ public class PlayerInteractionDetector : MonoBehaviour
 
             if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
             {
-                currentInteractableObject.Interact();
+                currentInteractableObject.OnInteract();
             }
 
             lastHighlightedInteractableObject = currentInteractableObject;

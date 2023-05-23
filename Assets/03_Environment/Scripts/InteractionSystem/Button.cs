@@ -15,7 +15,6 @@ public class Button : InteractableObject
     [SerializeField] private Item[] requiredItems;
 
     private bool isEnabled;
-    private bool interactable = true;
 
     private Timer automaticDisableTimer;
 
@@ -27,15 +26,14 @@ public class Button : InteractableObject
         }
     }
 
-    public override void Interact()
+    protected override void PerformInteraction()
     {
         if (!playerInventory.HasItems(requiredItems)) { return; }
-        if (!interactable) { return; }
 
         if (disableSwitchAfterActivation)
         {
             enabled = true;
-            interactable = false;
+            IsInteractable = false;
         }
 
         if (!automaticDisable)

@@ -4,7 +4,7 @@ public class PickupItem : InteractableObject
 {
     [SerializeField] private Item pickUpItem;
 
-    public override void Interact()
+    protected override void PerformInteraction()
     {
         if (pickUpItem == null)
         {

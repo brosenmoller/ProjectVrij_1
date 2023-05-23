@@ -13,5 +13,5 @@ public class DialogueData : ScriptableObject
         "'<pause=3>', creates a pause at which the text will stop momentarily\n";
 
     [TextArea(4, 4)] public List<string> dialogueLines;
-    public List<AudioObject> associatedAudioClips;
+    public List<AudioObject> associatedAudio;
 }

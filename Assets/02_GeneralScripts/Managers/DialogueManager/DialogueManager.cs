@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class DialogueManager : Manager
 {
+    private const string DIALOGUE_IS_ACTIVE_PARAMETER = "dialogueIsActive";
+
     private TMPAnimated dialogueTMPA;
     private Animator dialogueBoxAnimator;
-    private const string dialogueIsActiveParameter = "dialogueIsActive";
 
-    private Queue<string> queuedDialogueData = new();
+    private Queue<string> queuedDialogueText = new();
+    private Queue<AudioObject> queuedDialogueAudio = new();
 
     public override void Setup()
     {
@@ -22,14 +24,19 @@ public class DialogueManager : Manager
     {
         bool startDialogue = false;
 
-        if(queuedDialogueData.Count == 0)
+        if(queuedDialogueText.Count == 0)
         {
             startDialogue = true;
         }
 
         foreach(string text in dialogueData.dialogueLines)
         {
-            queuedDialogueData.Enqueue(text);
+            queuedDialogueText.Enqueue(text);
+        }
+
+        foreach(AudioObject audioObject in dialogueData.associatedAudio)
+        {
+            queuedDialogueAudio.Enqueue(audioObject);        
         }
 
         if (startDialogue)
@@ -40,16 +47,17 @@ public class DialogueManager : Manager
 
     private void StartDialogue()
     {
-        if (queuedDialogueData.Count == 0) 
+        if (queuedDialogueText.Count == 0) 
         {
-            dialogueBoxAnimator.SetBool(dialogueIsActiveParameter, false);
+            dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, false);
             dialogueTMPA.enabled = false;
         }
         else
         {
-            dialogueBoxAnimator.SetBool(dialogueIsActiveParameter, true);
+            dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
-            dialogueTMPA.ReadText(queuedDialogueData.Dequeue());
+            dialogueTMPA.ReadText(queuedDialogueText.Dequeue());
+            queuedDialogueAudio.Dequeue().Play();
         }
     }
 }

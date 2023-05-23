@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
-  m_Name: NPC1
+  m_Name: New Dialogue
   m_EditorClassIdentifier: 
   Notes: 'Dialogue supports multiple magic commands.
 
@@ -23,11 +23,5 @@ MonoBehaviour:
     creates a pause at which the text will stop momentarily
 
 '
-  dialogueLines:
-  - <speed=20>Hallo Cas<pause=2>
-  - Ik ben ralf
-  - en welkom<pause=2>
-  associatedAudio:
-  - {fileID: 11400000, guid: 58e66b56fdf43a7439d1459343417951, type: 2}
-  - {fileID: 11400000, guid: 58e66b56fdf43a7439d1459343417951, type: 2}
-  - {fileID: 11400000, guid: 58e66b56fdf43a7439d1459343417951, type: 2}
+  dialogueLines: []
+  associatedAudioClips: []

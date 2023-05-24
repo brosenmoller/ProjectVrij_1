@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DialogueManager : Manager
 {
+    //Bool parameter for the dialogue box animator
     private const string DIALOGUE_IS_ACTIVE_PARAMETER = "dialogueIsActive";
 
     private TMPAnimated dialogueTMPA;

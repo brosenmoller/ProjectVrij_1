@@ -10,14 +10,9 @@ public class MoveableObjectEditor : Editor
 
         MoveableObject moveableObject = (MoveableObject)target;
 
-        if (GUILayout.Button("Assign Open"))
+        if (GUILayout.Button("Assign Current Values At Index"))
         {
-            moveableObject.AssignOpenTranformValues();
-        }
-
-        if (GUILayout.Button("Assign Closed"))
-        {
-            moveableObject.AssignClosedTranformValues();
+            moveableObject.AssignTranformValues();
         }
     }
 }

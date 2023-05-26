@@ -14,6 +14,11 @@ public class MoveableObjectEditor : Editor
         {
             moveableObject.AssignTranformValues();
         }
+
+        if (GUILayout.Button("Set back to Initial position"))
+        {
+            moveableObject.SetToInitialPosition();
+        }
     }
 }
 

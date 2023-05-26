@@ -8,7 +8,7 @@ public abstract class InteractableObject : MonoBehaviour
     public string interactionDescription;
     [SerializeField] protected bool _isInteractable = true;
 
-    protected bool IsInteractable {
+    public bool IsInteractable {
         set { 
             _isInteractable = value;
             if (!_isInteractable) { outline.enabled = false; } 
@@ -18,6 +18,7 @@ public abstract class InteractableObject : MonoBehaviour
 
     private Outline outline;
     protected PlayerInventory playerInventory;
+    protected PlayerInteractionDetector playerInteractionDetector;
 
     public void OnInteract()
     {
@@ -32,7 +33,9 @@ public abstract class InteractableObject : MonoBehaviour
     private void Awake()
     {
         outline = GetComponent<Outline>();
+        if (!IsInteractable) { outline.enabled = false; }
         playerInventory = FindObjectOfType<PlayerInventory>();
+        playerInteractionDetector = playerInventory.gameObject.GetComponent<PlayerInteractionDetector>();
         RemoveHighlight();
     }
 

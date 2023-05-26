@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  playerInventoryUIView: {fileID: 0}
 --- !u!114 &6154808022946632957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,4 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e5364f441005d468356140bd444173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiInteractionDescText: {fileID: 0}
   lookRange: 5
+  canInteract: 1

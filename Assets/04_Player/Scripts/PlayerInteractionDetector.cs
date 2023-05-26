@@ -5,6 +5,10 @@ public class PlayerInteractionDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI uiInteractionDescText;
     [SerializeField] private float lookRange = 5f;
+    [SerializeField] private bool canInteract = true;
+
+    public void SetCanInteract(bool value) => canInteract = value;
+    public bool GetCanInteract() => canInteract;
 
     private Camera mainCamera;
 
@@ -27,6 +31,13 @@ public class PlayerInteractionDetector : MonoBehaviour
 
         if (currentInteractableObject != null)
         {
+            if (!currentInteractableObject.IsInteractable || !canInteract)
+            {
+                uiInteractionDescText.text = "";
+                currentInteractableObject.RemoveHighlight();
+                return;
+            }
+
             currentInteractableObject.Highlight();
             uiInteractionDescText.text = currentInteractableObject.interactionDescription;
 

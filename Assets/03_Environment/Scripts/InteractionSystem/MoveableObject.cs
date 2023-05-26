@@ -6,7 +6,7 @@ using UnityEngine;
 public class MoveableObject : InteractableObject
 {
     [Header("MoveableObject Settings")]
-    [SerializeField] private float animationDuration;
+    [SerializeField] private float animationDuration = 2;
     [SerializeField] private List<TransformValues> transformValuesList = new();
 
     [Header("Editor Buttons")]
@@ -50,6 +50,15 @@ public class MoveableObject : InteractableObject
         {
             transformValuesList[(int)assignIndex] = currentTransformValues;
             if (autoChangeAssignIndex) { assignIndex++; }
+        }
+    }
+
+    public void SetToInitialPosition()
+    {
+        if (transformValuesList.Count > 0)
+        {
+            transform.SetLocalPositionAndRotation(transformValuesList[0].position, Quaternion.Euler(transformValuesList[0].rotation));
+            transform.localScale = transformValuesList[0].scale;
         }
     }
 

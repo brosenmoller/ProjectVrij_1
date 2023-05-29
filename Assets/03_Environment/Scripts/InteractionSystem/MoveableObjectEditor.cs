@@ -1,7 +1,7 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿#if UNITY_EDITOR
 
-#if UNITY_EDITOR
+using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(MoveableObject))]
 public class MoveableObjectEditor : Editor

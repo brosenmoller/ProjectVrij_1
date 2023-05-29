@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class MainMenuUIView : UIView
 {
-    [SerializeField] Button playButton;
-    [SerializeField] Button settingsButton;
-    [SerializeField] Button quitButton;
-
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button quitButton;
 
     public override void Initialize()
     {

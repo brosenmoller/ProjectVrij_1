@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GamePauseUIView : UIView
 {
-    [SerializeField] Button resumeButton;
-    [SerializeField] Button returnToMenuButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button returnToMenuButton;
 
     private const string MAIN_MENU_SCENE = "MainMenu";
 
@@ -27,6 +27,8 @@ public class GamePauseUIView : UIView
     private void ReturnToMenu()
     {
         ResumeGame();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(MAIN_MENU_SCENE);
     }
 }

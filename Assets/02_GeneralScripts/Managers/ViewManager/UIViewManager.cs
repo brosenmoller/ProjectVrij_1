@@ -10,7 +10,7 @@ public class UIViewManager : Manager
     private UIView currentView;
     private readonly Stack<UIView> history = new();
 
-    public override void OnSceneLoad()
+    public override void Setup()
     {
         SetupViewDictionary();
     }

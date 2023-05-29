@@ -15,10 +15,14 @@ public class DialogueManager : Manager
     public override void Setup()
     {
         dialogueTMPA = GameManager.FindObjectOfType<TMPAnimated>();
-        dialogueBoxAnimator = dialogueTMPA.transform.parent.GetComponent<Animator>();
 
-        //TODO: Unsubscribe from this event
-        dialogueTMPA.onDialogueFinish.AddListener(StartDialogue);
+        if(dialogueTMPA != null)
+        {
+            dialogueBoxAnimator = dialogueTMPA.transform.parent.GetComponent<Animator>();
+
+            //TODO: Unsubscribe from this event
+            dialogueTMPA.onDialogueFinish.AddListener(StartDialogue);
+        }
     }
 
     public void QueueDialogue(DialogueData dialogueData)

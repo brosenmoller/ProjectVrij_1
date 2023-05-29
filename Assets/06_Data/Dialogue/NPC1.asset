@@ -26,7 +26,7 @@ MonoBehaviour:
   dialogueLines:
   - <speed=20>Hallo Cas<pause=2>
   - Ik ben ralf
-  - en welkom<pause=2>
+  - en welkom<pause=3>
   associatedAudio:
   - {fileID: 11400000, guid: 58e66b56fdf43a7439d1459343417951, type: 2}
   - {fileID: 11400000, guid: 58e66b56fdf43a7439d1459343417951, type: 2}

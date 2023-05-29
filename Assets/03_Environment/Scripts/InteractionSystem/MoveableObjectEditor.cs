@@ -1,6 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(MoveableObject))]
 public class MoveableObjectEditor : Editor
 {
@@ -21,4 +23,6 @@ public class MoveableObjectEditor : Editor
         }
     }
 }
+
+#endif
 

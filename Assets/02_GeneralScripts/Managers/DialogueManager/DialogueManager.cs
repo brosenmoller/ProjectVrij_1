@@ -14,7 +14,7 @@ public class DialogueManager : Manager
 
     public override void Setup()
     {
-        dialogueTMPA = GameManager.FindObjectOfType<TMPAnimated>();
+        dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
 
         if(dialogueTMPA != null)
         {
@@ -62,7 +62,7 @@ public class DialogueManager : Manager
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
             dialogueTMPA.ReadText(queuedDialogueText.Dequeue());
-            queuedDialogueAudio.Dequeue().Play();
+            if (queuedDialogueAudio.Count != 0) { queuedDialogueAudio.Dequeue().Play(); }
         }
     }
 }

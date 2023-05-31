@@ -12,6 +12,8 @@ public class DialogueManager : Manager
     private Queue<string> queuedDialogueText = new();
     private Queue<AudioObject> queuedDialogueAudio = new();
 
+    public bool IsRunning { get { return queuedDialogueText.Count > 0; } }
+
     public override void Setup()
     {
         dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();

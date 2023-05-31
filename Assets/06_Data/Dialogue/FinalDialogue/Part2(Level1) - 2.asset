@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b05b91fd599c34a954f68fa9162ef5, type: 3}
-  m_Name: Radio
+  m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
+  m_Name: Part2(Level1) - 2
   m_EditorClassIdentifier: 
-  itemName: Radio
-  UISprite: {fileID: 21300000, guid: 899285711894c7c49946d66bbcf3ad23, type: 3}
+  dialogueLines:
+  - "Great, great, let\u2019s get going! First you\u2019ll have to get back to the
+    present."
+  associatedAudio: []

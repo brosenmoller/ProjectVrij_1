@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static EventManager EventManager { get; private set; }
     public static InputManager InputManager { get; private set; }
     public static UIViewManager UIViewManager { get; private set; }
+    public static DialogueManager dialogueManager { get; private set; }
 
     private Manager[] activeManagers;
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         EventManager = new EventManager();
         InputManager = new InputManager();
         UIViewManager = new UIViewManager();
+        dialogueManager = new DialogueManager();
 
         activeManagers = new Manager[] {
             AudioManager,
@@ -48,8 +50,9 @@ public class GameManager : MonoBehaviour
             SaveManager,
             EventManager,
             InputManager,
-            UIViewManager
-        };
+            UIViewManager,
+            dialogueManager,
+    };
 
         foreach (Manager manager in activeManagers)
         {
@@ -89,5 +92,10 @@ public class GameManager : MonoBehaviour
     [ContextMenu("SaveManager/DeleteSave")] public void DeleteSave() => SaveManager?.DeleteSave();
 
     #endregion
+
+    public void StartDialogue(DialogueData dialogueData)
+    {
+        dialogueManager.QueueDialogue(dialogueData);
+    }
 }
 

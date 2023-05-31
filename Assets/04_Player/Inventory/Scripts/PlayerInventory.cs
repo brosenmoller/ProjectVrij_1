@@ -5,12 +5,8 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private List<Item> items = new();
 
-    private PlayerInventoryUIView playerInventoryUIView;
-
-    private void Start()
-    {
-        playerInventoryUIView = (PlayerInventoryUIView)GameManager.UIViewManager.GetView(typeof(PlayerInventoryUIView));
-    }
+    [Header("References")]
+    [SerializeField] private PlayerInventoryUI playerInventoryUIView;
 
     public void AddItem(Item item)
     {

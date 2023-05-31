@@ -5,8 +5,14 @@ public class PlayerInteractionDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI uiInteractionDescText;
     [SerializeField] private float lookRange = 5f;
+    [SerializeField] private bool canInteract = true;
+
+    public void SetCanInteract(bool value) => canInteract = value;
+    public bool GetCanInteract() => canInteract;
 
     private Camera mainCamera;
+
+    private InteractableObject lastHighlightedInteractableObject = null;
 
     private void Awake()
     {
@@ -15,24 +21,32 @@ public class PlayerInteractionDetector : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
-        {
-            InteractableObject currentInteractableObject = RaycastForInteractableObject();
-            
-            if (currentInteractableObject != null)
-            {
-                currentInteractableObject.Interact();
-            }
-        }
-        else
-        {
-            InteractableObject currentInteractableObject = RaycastForInteractableObject();
+        InteractableObject currentInteractableObject = RaycastForInteractableObject();
 
-            if (currentInteractableObject != null)
+        if (lastHighlightedInteractableObject != currentInteractableObject && lastHighlightedInteractableObject != null) 
+        {
+            lastHighlightedInteractableObject.RemoveHighlight();
+            uiInteractionDescText.text = "";
+        }
+
+        if (currentInteractableObject != null)
+        {
+            if (!currentInteractableObject.IsInteractable || !canInteract)
             {
-                currentInteractableObject.Highlight();
-                uiInteractionDescText.text = currentInteractableObject.interactionDescription;
+                uiInteractionDescText.text = "";
+                currentInteractableObject.RemoveHighlight();
+                return;
             }
+
+            currentInteractableObject.Highlight();
+            uiInteractionDescText.text = currentInteractableObject.interactionDescription;
+
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
+            {
+                currentInteractableObject.OnInteract();
+            }
+
+            lastHighlightedInteractableObject = currentInteractableObject;
         }
     }
 

@@ -16,7 +16,7 @@ public class TimeTravelMechanic : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI pastOrFutureText;
 
-    private const string PAST_TEXT = "Past";
+    private const string PRESENT_TEXT = "Present";
     private const string FUTURE_TEXT = "Future";
 
     private PlayerMovement playerMovement;
@@ -53,7 +53,7 @@ public class TimeTravelMechanic : MonoBehaviour
             transform.parent = targetWorld;
             playerMovement.WarpPlayer(targetWorld.position + playerRelativePosition);
 
-            if (targetWorld ==  world1) { pastOrFutureText.text = PAST_TEXT; }
+            if (targetWorld ==  world1) { pastOrFutureText.text = PRESENT_TEXT; }
             else { pastOrFutureText.text = FUTURE_TEXT; }
         }
         else

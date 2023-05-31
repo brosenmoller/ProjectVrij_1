@@ -8,5 +8,15 @@ public class InputManager : Manager
         playerInputActions = new PlayerActions();
         playerInputActions.Enable();
     }
+
+    public void DisablePlayerInput()
+    {
+        playerInputActions.Disable();
+    }
+
+    public void EnablePlayerInput()
+    {
+        playerInputActions.Enable();
+    }
 }
 

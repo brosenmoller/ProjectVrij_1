@@ -13,6 +13,9 @@ public class TimeTravelMechanic : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask notPlayerLayer;
 
+    [Header("Settings")]
+    [SerializeField] private bool canTimeTravel = false;
+
     [Header("References")]
     [SerializeField] private TextMeshProUGUI pastOrFutureText;
 
@@ -22,7 +25,6 @@ public class TimeTravelMechanic : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [HideInInspector] public bool isInPresent;
-    [HideInInspector] public bool canTimeTravel = false;
 
     public void SetCanTimeTravel(bool state) => canTimeTravel = state;
 

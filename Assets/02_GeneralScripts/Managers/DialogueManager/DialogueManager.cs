@@ -12,7 +12,7 @@ public class DialogueManager : Manager
     private Queue<string> queuedDialogueText = new();
     private Queue<AudioObject> queuedDialogueAudio = new();
 
-    public bool IsRunning { get { return queuedDialogueText.Count > 0; } }
+    public bool isRunning = false;
 
     public override void Setup()
     {
@@ -56,11 +56,14 @@ public class DialogueManager : Manager
     {
         if (queuedDialogueText.Count == 0) 
         {
+            isRunning = false;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, false);
             dialogueTMPA.enabled = false;
+            
         }
         else
         {
+            isRunning = true;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
             dialogueTMPA.ReadText(queuedDialogueText.Dequeue());

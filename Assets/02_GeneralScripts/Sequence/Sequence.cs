@@ -41,7 +41,7 @@ public class Sequence : MonoBehaviour
                     if (timeTravelMechanic.isInPresent) { return false; }
                     break;
                 case SequenceCondition.DialogueNotRunning:
-                    if (GameManager.DialogueManager.IsRunning) { return false; }
+                    if (GameManager.DialogueManager.isRunning) { return false; }
                     break;
             }
         }

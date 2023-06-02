@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
+  m_Name: Part3(Level2) - 7
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "I just heard the generator is becoming really unstable. It\u2019s absolutely
+    essential that you find a way to fix it. Otherwise this entire base might blow
+    up. This base holds prisoners of war and essential resources for the war effort.
+    If those are gone it will result in a diplomatic and military disaster. We cannot
+    let that happen."
+  associatedAudio: []

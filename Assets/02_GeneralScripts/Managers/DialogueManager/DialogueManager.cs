@@ -12,9 +12,11 @@ public class DialogueManager : Manager
     private Queue<string> queuedDialogueText = new();
     private Queue<AudioObject> queuedDialogueAudio = new();
 
+    public bool IsRunning { get { return queuedDialogueText.Count > 0; } }
+
     public override void Setup()
     {
-        dialogueTMPA = GameManager.FindObjectOfType<TMPAnimated>();
+        dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
 
         if(dialogueTMPA != null)
         {
@@ -62,7 +64,7 @@ public class DialogueManager : Manager
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
             dialogueTMPA.ReadText(queuedDialogueText.Dequeue());
-            queuedDialogueAudio.Dequeue().Play();
+            if (queuedDialogueAudio.Count != 0) { queuedDialogueAudio.Dequeue().Play(); }
         }
     }
 }

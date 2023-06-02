@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/00_Scenes/MainMenu.unity
     guid: ff270a1442400e74585dccbb3feeaf3c
   - enabled: 1
-    path: Assets/00_Scenes/ArtTest.unity
+    path: Assets/00_Scenes/FinalScene.unity
     guid: 11e0febd50819ee41a5d543ffb031577
   - enabled: 1
     path: Assets/00_Scenes/DevTestScene.unity

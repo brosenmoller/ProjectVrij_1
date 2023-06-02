@@ -13,16 +13,24 @@ public class TimeTravelMechanic : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask notPlayerLayer;
 
+    [Header("Settings")]
+    [SerializeField] private bool canTimeTravel = false;
+
     [Header("References")]
     [SerializeField] private TextMeshProUGUI pastOrFutureText;
 
-    private const string PRESENT_TEXT = "Present";
-    private const string FUTURE_TEXT = "Future";
+    private const string PRESENT_TEXT = "1960";
+    private const string FUTURE_TEXT = "2020";
 
     private PlayerMovement playerMovement;
 
+    [HideInInspector] public bool isInPresent;
+
+    public void SetCanTimeTravel(bool state) => canTimeTravel = state;
+
     private void Awake()
     {
+        pastOrFutureText.text = PRESENT_TEXT;
         playerMovement = GetComponent<PlayerMovement>();
     }
 
@@ -38,6 +46,12 @@ public class TimeTravelMechanic : MonoBehaviour
 
     private void TimeTravelPerformed(InputAction.CallbackContext callbackContext)
     {
+        if (!canTimeTravel) { return; }
+        ToggleWorld();
+    }
+
+    public void ToggleWorld()
+    {
         Transform currentWorld = transform.parent;
 
         if (currentWorld == world1) { SwitchWorld(world2); }
@@ -48,13 +62,21 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         Vector3 playerRelativePosition = transform.localPosition;
 
-        if (!Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer))
+        if (!Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer, QueryTriggerInteraction.Ignore))
         {
             transform.parent = targetWorld;
             playerMovement.WarpPlayer(targetWorld.position + playerRelativePosition);
 
-            if (targetWorld ==  world1) { pastOrFutureText.text = PRESENT_TEXT; }
-            else { pastOrFutureText.text = FUTURE_TEXT; }
+            if (targetWorld == world1) 
+            {
+                pastOrFutureText.text = PRESENT_TEXT;
+                isInPresent = true;
+            }
+            else 
+            { 
+                pastOrFutureText.text = FUTURE_TEXT; 
+                isInPresent = false;
+            }
         }
         else
         {

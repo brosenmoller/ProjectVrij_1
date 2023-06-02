@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
+  m_Name: Part3(Level2) - 2
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "Oh it appears the emergency gate has closed. Well, I guess it\u2019s normal
+    for a military base like this to have things like this in place for when an emergency
+    occurs, but it\u2019s rather awkward when you have to get through in order to
+    deal with the emergency in the first place. "
+  associatedAudio: []

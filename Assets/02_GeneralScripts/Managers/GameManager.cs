@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static InputManager InputManager { get; private set; }
     public static UIViewManager UIViewManager { get; private set; }
     public static DialogueManager DialogueManager { get; private set; }
+    public static TutorialManager TutorialManager { get; private set; }
 
     private Manager[] activeManagers;
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         InputManager = new InputManager();
         UIViewManager = new UIViewManager();
         DialogueManager = new DialogueManager();
+        TutorialManager = new TutorialManager();
 
         activeManagers = new Manager[] {
             AudioManager,
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
             InputManager,
             UIViewManager,
             DialogueManager,
+            TutorialManager,
         };
 
         foreach (Manager manager in activeManagers)
@@ -96,6 +99,11 @@ public class GameManager : MonoBehaviour
     public void StartDialogue(DialogueData dialogueData)
     {
         DialogueManager.QueueDialogue(dialogueData);
+    }
+
+    public void StartTutorial(TutorialStep tutorialStep)
+    {
+        TutorialManager.QueueTutorial(tutorialStep);
     }
 }
 

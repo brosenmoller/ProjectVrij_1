@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TutorialManager : Manager
@@ -25,11 +26,15 @@ public class TutorialManager : Manager
     public override void OnSceneLoad()
     {
         //Bad implementation ahead :c
-        titleText = GameObject.Find(TITLE_TEXT_NAME).GetComponent<TextMeshProUGUI>();
-        descriptionText = GameObject.Find(DESC_TEXT_NAME).GetComponent<TextMeshProUGUI>();
 
-        tutorialPanel = titleText.transform.parent.gameObject;
-        HideTutorialUI();
+        if (SceneManager.GetActiveScene().name.Equals("FinalScene"))
+        {
+            titleText = GameObject.Find(TITLE_TEXT_NAME).GetComponent<TextMeshProUGUI>();
+            descriptionText = GameObject.Find(DESC_TEXT_NAME).GetComponent<TextMeshProUGUI>();
+
+            tutorialPanel = titleText.transform.parent.gameObject;
+            HideTutorialUI();
+        }
     }
 
     public void QueueTutorial(TutorialStep tutorialStep)
@@ -71,11 +76,11 @@ public class TutorialManager : Manager
 
     private void HideTutorialUI()
     {
-        tutorialPanel.SetActive(false);
+        tutorialPanel?.SetActive(false);
     }
 
     private void ShowTutorialUI()
     {
-        tutorialPanel.SetActive(true);
+        tutorialPanel?.SetActive(true);
     }
 }

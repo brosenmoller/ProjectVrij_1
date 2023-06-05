@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,7 +19,10 @@ public class TutorialManager : Manager
 
     public override void OnFixedUpdate()
     {
-        currentStep?.FixedUpdate();
+        if (currentStep != null) 
+        {
+            currentStep.FixedUpdate();
+        }
     }
 
     public override void OnSceneLoad()
@@ -76,11 +78,17 @@ public class TutorialManager : Manager
 
     private void HideTutorialUI()
     {
-        tutorialPanel?.SetActive(false);
+        if (tutorialPanel != null)
+        {
+            tutorialPanel.SetActive(false);
+        }
     }
 
     private void ShowTutorialUI()
     {
-        tutorialPanel?.SetActive(true);
+        if (tutorialPanel != null)
+        {
+            tutorialPanel.SetActive(true);
+        }
     }
 }

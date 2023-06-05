@@ -342,7 +342,9 @@ MonoBehaviour:
   notPlayerLayer:
     serializedVersion: 2
     m_Bits: 1
+  canTimeTravel: 0
   pastOrFutureText: {fileID: 0}
+  isInPresent: 0
 --- !u!114 &4167257998865379152
 MonoBehaviour:
   m_ObjectHideFlags: 0

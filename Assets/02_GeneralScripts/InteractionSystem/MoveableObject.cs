@@ -7,6 +7,7 @@ public class MoveableObject : InteractableObject
 {
     [Header("MoveableObject Settings")]
     [SerializeField] private float animationDuration = 2;
+    [SerializeField] private bool loop = false;
     [SerializeField] private List<TransformValues> transformValuesList = new();
 
     [Header("Editor Buttons")]
@@ -88,7 +89,7 @@ public class MoveableObject : InteractableObject
     {
         if (isDirectionForward)
         {
-            while (currentIndex < transformValuesList.Count)
+            while (currentIndex < transformValuesList.Count - 1)
             {
                 if (currentIndex < transformValuesList.Count - 1) { currentIndex++; }
                 yield return StartCoroutine(AnimateTransformValues(transformValuesList[currentIndex - 1], transformValuesList[currentIndex]));
@@ -96,12 +97,14 @@ public class MoveableObject : InteractableObject
         }
         else
         {
-            while (currentIndex >= 0)
+            while (currentIndex > 0)
             {
                 if (currentIndex > 0) { currentIndex--; }
                 yield return StartCoroutine(AnimateTransformValues(transformValuesList[currentIndex + 1], transformValuesList[currentIndex]));
             }
         }
+
+        if (loop) { PerformInteraction(); }
     }
 
     private IEnumerator AnimateTransformValues(TransformValues lastTransformValues, TransformValues endTransformValues)

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Part2(Level1) - 3
   m_EditorClassIdentifier: 
   dialogueLines:
-  - "So what were you here for again? Right. The fuse box. Mmmmh. This is tricky.
-    The door is closed, because of the problems with the fuse box. But we have to
-    get inside of that room in order to fix those problems in the first place. But
-    I think I might know another way in. Why don\u2019t you use that mysterious power
-    again!"
+  - 'So what were you here for again? Right. The fuse box. Mmmmh. This is tricky.
+    The door is closed, because of the problems with the fuse box. '
+  - "But we have to get inside of that room in order to fix those problems in the
+    first place. But I think I might know another way in. Why don\u2019t you use
+    that mysterious power again!"
   associatedAudio: []

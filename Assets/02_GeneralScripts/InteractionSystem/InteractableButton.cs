@@ -27,6 +27,13 @@ public class InteractableButton : InteractableObject
         }
     }
 
+    public override bool CheckIfLocked()
+    {
+        if (!playerInventory.HasItems(requiredItems)) { return false; }
+
+        return true;
+    }
+
     protected override void PerformInteraction()
     {
         if (!playerInventory.HasItems(requiredItems)) { return; }

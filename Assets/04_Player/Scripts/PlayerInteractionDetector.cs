@@ -4,6 +4,7 @@ using TMPro;
 public class PlayerInteractionDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI uiInteractionDescText;
+    [SerializeField] private TextMeshProUGUI uiBlockDescText;
     [SerializeField] private float lookRange = 5f;
     [SerializeField] private bool canInteract = true;
 
@@ -27,6 +28,7 @@ public class PlayerInteractionDetector : MonoBehaviour
         {
             lastHighlightedInteractableObject.RemoveHighlight();
             uiInteractionDescText.text = "";
+            uiBlockDescText.text = "";
         }
 
         if (currentInteractableObject != null)
@@ -34,19 +36,28 @@ public class PlayerInteractionDetector : MonoBehaviour
             if (!currentInteractableObject.IsInteractable || !canInteract)
             {
                 uiInteractionDescText.text = "";
+                uiBlockDescText.text = "";
                 currentInteractableObject.RemoveHighlight();
                 return;
             }
 
             currentInteractableObject.Highlight();
+            lastHighlightedInteractableObject = currentInteractableObject;
+
+            if (!currentInteractableObject.CheckIfLocked())
+            {
+                uiBlockDescText.text = currentInteractableObject.lockedDescription;
+                uiInteractionDescText.text = "";
+                return;
+            }
+
+            uiBlockDescText.text = "";
             uiInteractionDescText.text = currentInteractableObject.interactionDescription;
 
             if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPressedThisFrame())
             {
                 currentInteractableObject.OnInteract();
             }
-
-            lastHighlightedInteractableObject = currentInteractableObject;
         }
     }
 

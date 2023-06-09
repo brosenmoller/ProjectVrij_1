@@ -38,23 +38,16 @@ public class DialogueManager : Manager
     {
         queuedDialogueData.Enqueue(dialogueData);
 
-        bool startDialogue = false;
-
-        if(queuedDialogueText.Count == 0)
-        {
-            startDialogue = true;
-        }
-
         foreach(AudioObject audioObject in dialogueData.associatedAudio)
         {
             queuedDialogueAudio.Enqueue(audioObject);        
         }
 
-        if (startDialogue)
+        if(queuedDialogueText.Count <= 0)
         {
             StartDialogue();
-            PlayQueuedLines();
         }
+
     }
 
     private void StartDialogue()
@@ -67,6 +60,8 @@ public class DialogueManager : Manager
         }
 
         currentSpeaker = currentDialogueData.speakerName;
+
+        PlayQueuedLines();
     }
 
     private void PlayQueuedLines()

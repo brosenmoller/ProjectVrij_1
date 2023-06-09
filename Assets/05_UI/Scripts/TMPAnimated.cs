@@ -11,7 +11,7 @@ using UnityEngine.Events;
 public class TMPAnimated : TextMeshProUGUI
 {
     [Header("Settings")]
-    [SerializeField] private float speed = 10;
+    private float speed = 30;
 
     public UnityEvent onAction;
     public UnityEvent onTextReveal;

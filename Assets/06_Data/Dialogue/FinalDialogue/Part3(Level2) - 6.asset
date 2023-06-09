@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 6
   m_EditorClassIdentifier: 
+  speakerName: Military base announcer
   dialogueLines:
   - "I just heard the generator is becoming really unstable. It\u2019s absolutely
     essential that you find a way to fix it. Otherwise this entire base might blow

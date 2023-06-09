@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part2(Level1) - 2
   m_EditorClassIdentifier: 
+  speakerName: Voice through radio
   dialogueLines:
   - "Great, great, let\u2019s get going! First you\u2019ll have to get back to the
     present.<pause=3>"

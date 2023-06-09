@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part2(Level1) - 4
   m_EditorClassIdentifier: 
+  speakerName: Voice through radio
   dialogueLines:
   - "I know you might think this is not an ideal future, but it\u2019s actually really
     neat. The war you\u2019re in right now abruptly ends and this base is destroyed.

@@ -59,10 +59,14 @@ public class DialogueManager : Manager
 
     private void StartDialogue()
     {
-        foreach (string text in queuedDialogueData.Dequeue().dialogueLines)
+        DialogueData currentDialogueData = queuedDialogueData.Dequeue();
+
+        foreach (string text in currentDialogueData.dialogueLines)
         {
             queuedDialogueText.Enqueue(text);
         }
+
+        currentSpeaker = currentDialogueData.speakerName;
     }
 
     private void PlayQueuedLines()

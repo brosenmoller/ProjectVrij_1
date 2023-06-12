@@ -13,7 +13,7 @@ public class InteractableButton : InteractableObject
     [SerializeField] private bool automaticDisable;
     [SerializeField, Range(0f, 60f)] private float disableTime;
     [SerializeField] private Item[] requiredItems;
-    [SerializeField] private bool cosumeRequitedItemsAfterUse;
+    [SerializeField] private bool consumeRequitedItemsAfterUse;
 
     private bool isEnabled;
 
@@ -38,11 +38,11 @@ public class InteractableButton : InteractableObject
     {
         if (!playerInventory.HasItems(requiredItems)) { return; }
 
-        if (requiredItems.Length != 0 && cosumeRequitedItemsAfterUse)
+        if (consumeRequitedItemsAfterUse)
         {
-            for (int i = 0; i < requiredItems.Length; i++)
+            foreach (Item item in requiredItems)
             {
-                playerInventory.RemoveItem(requiredItems[i]);
+                playerInventory.RemoveItem(item);
             }
         }
 

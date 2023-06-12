@@ -23,6 +23,7 @@ public class DialogueManager : Manager
     public override void Setup()
     {
         speakerTMP = GameObject.Find("DialogueSpeaker").GetComponent<TextMeshProUGUI>();
+        speakerTMP.gameObject.SetActive(false);
         dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
 
         if(dialogueTMPA != null)
@@ -71,13 +72,14 @@ public class DialogueManager : Manager
             isRunning = false;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, false);
             dialogueTMPA.enabled = false;
-
+            speakerTMP.gameObject.SetActive(false);
         }
         else
         {
             isRunning = true;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
+            speakerTMP.gameObject.SetActive(true);
 
             NextLine(currentSpeaker, queuedDialogueText.Dequeue());
         }
@@ -89,6 +91,4 @@ public class DialogueManager : Manager
         dialogueTMPA.ReadText(text);
         if (queuedDialogueAudio.Count != 0) { queuedDialogueAudio.Dequeue().Play(); }
     }
-
-
 }

@@ -11,7 +11,7 @@ using UnityEngine.Events;
 public class TMPAnimated : TextMeshProUGUI
 {
     [Header("Settings")]
-    private float speed = 30;
+    private float speed = 150;
 
     public UnityEvent onAction;
     public UnityEvent onTextReveal;

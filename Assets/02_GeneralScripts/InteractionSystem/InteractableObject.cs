@@ -40,6 +40,7 @@ public abstract class InteractableObject : MonoBehaviour
     {
         outline = GetComponent<Outline>();
         if (!IsInteractable) { outline.enabled = false; }
+
         playerInventory = FindObjectOfType<PlayerInventory>();
         playerInteractionDetector = playerInventory.gameObject.GetComponent<PlayerInteractionDetector>();
         RemoveHighlight();

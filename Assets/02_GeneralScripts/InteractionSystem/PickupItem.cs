@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickupItem : InteractableObject
 {
     [SerializeField] private Item pickUpItem;
+    [SerializeField] protected AudioSource audioOnPerformed;
 
     protected override void PerformInteraction()
     {
@@ -11,6 +12,8 @@ public class PickupItem : InteractableObject
             Debug.LogWarning("No Item is set for this Pickup: " + gameObject.name);
             return;
         }
+
+        audioOnPerformed.Play();
 
         playerInventory.AddItem(pickUpItem);
 

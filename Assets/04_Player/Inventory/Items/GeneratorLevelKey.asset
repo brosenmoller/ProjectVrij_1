@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: GeneratorLevelKey
   m_EditorClassIdentifier: 
   itemName: base_key
-  itemDescription: key to open a door
-  UISprite: {fileID: 21300000, guid: 9c63b51755ec8c845b857cc73a35d606, type: 3}
+  UISprite: {fileID: 21300000, guid: 7ba2ec739754a0343883bb3f53d1ef01, type: 3}

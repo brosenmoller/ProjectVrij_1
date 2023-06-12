@@ -186,9 +186,9 @@ public class MoveableObject : InteractableObject
             else { Gizmos.color = Color.yellow; }
 
             Gizmos.DrawWireMesh(
-                mesh, 
-                transform.parent.TransformPoint(transformValuesList[i].position), 
-                Quaternion.Euler(transformValuesList[i].rotation), 
+                mesh,
+                transform.parent != null ? transform.parent.TransformPoint(transformValuesList[i].position) : transformValuesList[i].position,
+                Quaternion.Euler(transformValuesList[i].rotation),
                 transformValuesList[i].scale
             );
         }

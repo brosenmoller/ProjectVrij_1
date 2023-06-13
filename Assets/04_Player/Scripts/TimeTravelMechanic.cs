@@ -1,6 +1,9 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class TimeTravelMechanic : MonoBehaviour
 {
@@ -19,6 +22,12 @@ public class TimeTravelMechanic : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI pastOrFutureText;
 
+    [Header("Effects")]
+    [SerializeField] private VolumeProfile postProcessingVolume;
+    private LensDistortion postProcessingLensDistortion;
+    [SerializeField] private AudioSource timeTravelSound;
+    [SerializeField] private float timeTravelDelay;
+
     private const string PRESENT_TEXT = "1960";
     private const string FUTURE_TEXT = "2020";
 
@@ -32,6 +41,11 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         pastOrFutureText.text = PRESENT_TEXT;
         playerMovement = GetComponent<PlayerMovement>();
+
+        if (postProcessingVolume.TryGet(out LensDistortion lensDistortion))
+        {
+            postProcessingLensDistortion = lensDistortion;
+        }
     }
 
     private void OnEnable()
@@ -64,24 +78,62 @@ public class TimeTravelMechanic : MonoBehaviour
 
         if (!Physics.CheckSphere(targetWorld.position + playerRelativePosition + Vector3.up * checkHeight, checkRadius, notPlayerLayer, QueryTriggerInteraction.Ignore))
         {
-            transform.parent = targetWorld;
-            playerMovement.WarpPlayer(targetWorld.position + playerRelativePosition);
-
-            if (targetWorld == world1) 
-            {
-                pastOrFutureText.text = PRESENT_TEXT;
-                isInPresent = true;
-            }
-            else 
-            { 
-                pastOrFutureText.text = FUTURE_TEXT; 
-                isInPresent = false;
-            }
+            StartCoroutine(TimeTravelEffect(targetWorld));
         }
         else
         {
             Debug.Log("Can't switch now");
         }
+    }
+
+    private IEnumerator TimeTravelEffect(Transform targetWorld)
+    {
+        canTimeTravel = false;
+
+        timeTravelSound.Play();
+
+        float time = 0f;
+
+        while (time <= 1f)
+        {
+            time += Time.deltaTime / timeTravelDelay;
+            postProcessingLensDistortion.intensity.overrideState = true;
+            postProcessingLensDistortion.scale.overrideState = true;
+            postProcessingLensDistortion.intensity.value = Mathf.Lerp(0, -1, time);
+            postProcessingLensDistortion.scale.value = Mathf.Lerp(1, .5f, time);
+
+            yield return null;
+        }
+
+        Vector3 relativePosition = transform.localPosition;
+        transform.parent = targetWorld;
+        playerMovement.WarpPlayer(targetWorld.position + relativePosition);
+
+        if (targetWorld == world1)
+        {
+            pastOrFutureText.text = PRESENT_TEXT;
+            isInPresent = true;
+        }
+        else
+        {
+            pastOrFutureText.text = FUTURE_TEXT;
+            isInPresent = false;
+        }
+
+        time = 0f;
+
+        while (time <= 1f)
+        {
+            time += Time.deltaTime / timeTravelDelay;
+            postProcessingLensDistortion.intensity.overrideState = true;
+            postProcessingLensDistortion.scale.overrideState = true;
+            postProcessingLensDistortion.intensity.value = Mathf.Lerp(-1, 0, time);
+            postProcessingLensDistortion.scale.value = Mathf.Lerp(.5f, 1, time);
+
+            yield return null;
+        }
+
+        canTimeTravel = true;
     }
 
     private void OnDrawGizmos()

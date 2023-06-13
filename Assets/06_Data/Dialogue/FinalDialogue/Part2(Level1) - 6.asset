@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part2(Level1) - 6
   m_EditorClassIdentifier: 
+  speakerName: Military base announcer
   dialogueLines:
   - "Great. You fixed the fuse box. But you\u2019re not done yet. I just heard there\u2019s
     something wrong with the generator. This could be disastrous, so please head

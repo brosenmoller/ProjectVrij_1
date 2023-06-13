@@ -9,7 +9,8 @@ public class PickupObject : InteractableObject
     {
         if (isHoldingObject) { return; }
 
-        if (holdingParent == null) { holdingParent = playerInteractionDetector.gameObject.GetComponentInChildren<Camera>().transform; }
+        //if (holdingParent == null) { holdingParent = playerInteractionDetector.gameObject.GetComponentInChildren<Camera>().transform; }
+        if (holdingParent == null) { holdingParent = playerInteractionDetector.transform; }
 
         transform.SetParent(holdingParent);
 

@@ -12,7 +12,7 @@ public class DialogueData : ScriptableObject
         "'<pause=3>', creates a pause at which the text will stop momentarily\n"
     )]
 
-
+    public string speakerName;
     [TextArea(4, 4)] public string[] dialogueLines;
     public AudioObject[] associatedAudio;
 }

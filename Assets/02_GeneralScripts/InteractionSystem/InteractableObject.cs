@@ -6,6 +6,7 @@ public abstract class InteractableObject : MonoBehaviour
 {
     [Header("Base Interactable Object Settings")]
     public string interactionDescription;
+    public string lockedDescription;
     [SerializeField] protected bool _isInteractable = true;
 
     public bool IsInteractable {
@@ -28,12 +29,18 @@ public abstract class InteractableObject : MonoBehaviour
         }
     }
 
+    public virtual bool CheckIfLocked()
+    {
+        return true;
+    }
+
     protected abstract void PerformInteraction();
 
     private void Awake()
     {
         outline = GetComponent<Outline>();
         if (!IsInteractable) { outline.enabled = false; }
+
         playerInventory = FindObjectOfType<PlayerInventory>();
         playerInteractionDetector = playerInventory.gameObject.GetComponent<PlayerInteractionDetector>();
         RemoveHighlight();

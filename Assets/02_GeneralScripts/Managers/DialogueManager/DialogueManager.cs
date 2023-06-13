@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DialogueManager : Manager
@@ -6,16 +7,23 @@ public class DialogueManager : Manager
     //Bool parameter for the dialogue box animator
     private const string DIALOGUE_IS_ACTIVE_PARAMETER = "dialogueIsActive";
 
+    private TextMeshProUGUI speakerTMP;
     private TMPAnimated dialogueTMPA;
     private Animator dialogueBoxAnimator;
 
+    private Queue<DialogueData> queuedDialogueData = new();
+
     private Queue<string> queuedDialogueText = new();
     private Queue<AudioObject> queuedDialogueAudio = new();
+
+    private string currentSpeaker;
 
     public bool isRunning = false;
 
     public override void Setup()
     {
+        speakerTMP = GameObject.Find("DialogueSpeaker").GetComponent<TextMeshProUGUI>();
+        speakerTMP.gameObject.SetActive(false);
         dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
 
         if(dialogueTMPA != null)
@@ -23,51 +31,64 @@ public class DialogueManager : Manager
             dialogueBoxAnimator = dialogueTMPA.transform.parent.GetComponent<Animator>();
 
             //TODO: Unsubscribe from this event
-            dialogueTMPA.onDialogueFinish.AddListener(StartDialogue);
+            dialogueTMPA.onDialogueFinish.AddListener(PlayQueuedLines);
         }
     }
 
     public void QueueDialogue(DialogueData dialogueData)
     {
-        bool startDialogue = false;
-
-        if(queuedDialogueText.Count == 0)
-        {
-            startDialogue = true;
-        }
-
-        foreach(string text in dialogueData.dialogueLines)
-        {
-            queuedDialogueText.Enqueue(text);
-        }
+        queuedDialogueData.Enqueue(dialogueData);
 
         foreach(AudioObject audioObject in dialogueData.associatedAudio)
         {
             queuedDialogueAudio.Enqueue(audioObject);        
         }
 
-        if (startDialogue)
+        if(queuedDialogueText.Count <= 0)
         {
             StartDialogue();
         }
+
     }
 
     private void StartDialogue()
     {
-        if (queuedDialogueText.Count == 0) 
+        DialogueData currentDialogueData = queuedDialogueData.Dequeue();
+
+        foreach (string text in currentDialogueData.dialogueLines)
+        {
+            queuedDialogueText.Enqueue(text);
+        }
+
+        currentSpeaker = currentDialogueData.speakerName;
+
+        PlayQueuedLines();
+    }
+
+    private void PlayQueuedLines()
+    {
+        if (queuedDialogueText.Count == 0)
         {
             isRunning = false;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, false);
             dialogueTMPA.enabled = false;
-            
+            speakerTMP.gameObject.SetActive(false);
         }
         else
         {
             isRunning = true;
             dialogueBoxAnimator.SetBool(DIALOGUE_IS_ACTIVE_PARAMETER, true);
             dialogueTMPA.enabled = true;
-            dialogueTMPA.ReadText(queuedDialogueText.Dequeue());
-            if (queuedDialogueAudio.Count != 0) { queuedDialogueAudio.Dequeue().Play(); }
+            speakerTMP.gameObject.SetActive(true);
+
+            NextLine(currentSpeaker, queuedDialogueText.Dequeue());
         }
+    }
+
+    private void NextLine(string speaker, string text)
+    {
+        speakerTMP.text = speaker;
+        dialogueTMPA.ReadText(text);
+        if (queuedDialogueAudio.Count != 0) { queuedDialogueAudio.Dequeue().Play(); }
     }
 }

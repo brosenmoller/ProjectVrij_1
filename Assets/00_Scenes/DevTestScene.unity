@@ -4133,7 +4133,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &236678846
 GameObject:
@@ -6898,7 +6898,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343029410
 GameObject:
@@ -9970,7 +9970,7 @@ Transform:
   - {fileID: 600392781}
   - {fileID: 1932837551}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470667535
 GameObject:
@@ -11586,6 +11586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDescription: Touch Cube
+  lockedDescription: 
   _isInteractable: 1
   OnActivated:
     m_PersistentCalls:
@@ -11622,6 +11623,7 @@ MonoBehaviour:
   disableTime: 3.2
   requiredItems:
   - {fileID: 11400000, guid: 62596c7ffafef19468e6295faec3de34, type: 2}
+  cosumeRequitedItemsAfterUse: 0
 --- !u!65 &539345320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12187,8 +12189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDescription: Start Moving
+  lockedDescription: 
   _isInteractable: 1
   animationDuration: 2
+  loop: 0
   transformValuesList:
   - position: {x: -34.1293, y: 3.57, z: 12.16}
     rotation: {x: -0, y: 90.38253, z: 0}
@@ -12430,7 +12434,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &659143493
 MonoBehaviour:
@@ -13364,6 +13368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDescription: Pick up journal
+  lockedDescription: 
   _isInteractable: 1
   pickUpItem: {fileID: 11400000, guid: 62596c7ffafef19468e6295faec3de34, type: 2}
 --- !u!114 &699124671
@@ -14285,7 +14290,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &752849200
 Mesh:
@@ -14829,7 +14834,7 @@ Transform:
   - {fileID: 847105456}
   - {fileID: 18670449}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &794627967
 Mesh:
@@ -21535,7 +21540,7 @@ Transform:
   - {fileID: 106522284}
   - {fileID: 1769149309}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30.307}
 --- !u!114 &1074086553
 MonoBehaviour:
@@ -21550,6 +21555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDescription: Hold Ladder
+  lockedDescription: 
   _isInteractable: 1
 --- !u!1 &1077745659
 GameObject:
@@ -27323,6 +27329,75 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1465577503
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.379456
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.467476
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 51.6986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5730984
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.57257056
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0056105
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.58625054
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -40.519
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -63.072
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 116.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6533b67e1f352654499b8677025127fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Key
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6533b67e1f352654499b8677025127fc, type: 3}
 --- !u!43 &1496033716
 Mesh:
   m_ObjectHideFlags: 0
@@ -27912,7 +27987,7 @@ RectTransform:
   - {fileID: 997845668}
   - {fileID: 311339336}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -35735,6 +35810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDescription: Pick up note
+  lockedDescription: 
   _isInteractable: 1
   pickUpItem: {fileID: 11400000, guid: bf8d8c01aed0dae478d2ec312e416157, type: 2}
 --- !u!114 &1869303083
@@ -37859,8 +37935,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8938b86547d2a2b42baac11350722a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnAwake: 0
   sequenceSteps:
-  - OnExecuted:
+  - delayBeforeConditions: 0
+    conditions: 
+    requiredItems: []
+    requiredCollider: {fileID: 0}
+    delayAfterConditions: 0
+    OnExecuted:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 172024276}
@@ -37875,8 +37957,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-    pauseTime: 3
-  - OnExecuted:
+  - delayBeforeConditions: 0
+    conditions: 
+    requiredItems: []
+    requiredCollider: {fileID: 0}
+    delayAfterConditions: 0
+    OnExecuted:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 172024276}
@@ -37891,8 +37977,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    pauseTime: 3
-  - OnExecuted:
+  - delayBeforeConditions: 0
+    conditions: 
+    requiredItems: []
+    requiredCollider: {fileID: 0}
+    delayAfterConditions: 0
+    OnExecuted:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 172024276}
@@ -37907,8 +37997,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-    pauseTime: 3
-  - OnExecuted:
+  - delayBeforeConditions: 0
+    conditions: 
+    requiredItems: []
+    requiredCollider: {fileID: 0}
+    delayAfterConditions: 0
+    OnExecuted:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 172024276}
@@ -37923,8 +38017,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    pauseTime: 3
-  - OnExecuted:
+  - delayBeforeConditions: 0
+    conditions: 
+    requiredItems: []
+    requiredCollider: {fileID: 0}
+    delayAfterConditions: 0
+    OnExecuted:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 172024276}
@@ -37939,7 +38037,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-    pauseTime: 3
 --- !u!4 &1988577136
 Transform:
   m_ObjectHideFlags: 0
@@ -37953,7 +38050,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2005382623
 PrefabInstance:

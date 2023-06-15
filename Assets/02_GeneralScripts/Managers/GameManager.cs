@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SingletonSetup();
+        Instance = this;
         ManagerSetup();
     }
 

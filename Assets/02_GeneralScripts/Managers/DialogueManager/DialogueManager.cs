@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : Manager
 {
@@ -22,9 +23,12 @@ public class DialogueManager : Manager
 
     public override void Setup()
     {
-        speakerTMP = GameObject.Find("DialogueSpeaker").GetComponent<TextMeshProUGUI>();
-        speakerTMP.gameObject.SetActive(false);
-        dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            speakerTMP = GameObject.Find("DialogueSpeaker").GetComponent<TextMeshProUGUI>();
+            speakerTMP.gameObject.SetActive(false);
+            dialogueTMPA = Object.FindObjectOfType<TMPAnimated>();
+        }
 
         if(dialogueTMPA != null)
         {

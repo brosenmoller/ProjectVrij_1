@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Voice through radio
   dialogueLines:
   - "Hey! It looks like you\u2019re in a bit of a situation. Stranded in the future
-    and all that. "
+    and all that. <pause=2>"
   - "But- <pause=1> I can help you out! Just pick up this radio and I\u2019ll tell
-    you what to do."
+    you what to do. <pause=2>"
   associatedAudio: []

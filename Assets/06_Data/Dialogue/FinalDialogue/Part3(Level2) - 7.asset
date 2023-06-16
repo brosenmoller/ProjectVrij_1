@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 7
   m_EditorClassIdentifier: 
-  speakerName: Military base announcer
+  speakerName: Voice through radio
   dialogueLines:
-  - Attention! Everyone evacuate the building! This is not a drill! The generator
-    is unstable. Potential structural failure is imminent.
-  - "Please ignore that announcement. That was just in case you\u2019re not able
-    to fix it. Please head over to the generator as soon as possible. It\u2019s absolutely
-    vital that you fix the generator."
+  - "Hmmm that\u2019s.. odd. I- I need to go check on something. <pause=2>"
   associatedAudio: []

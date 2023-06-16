@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Voice through radio
   dialogueLines:
-  - "Nice! This is working. Let\u2019s see if you can reach the other two switches."
+  - "Nice! This is working. Let\u2019s see if you can reach the other two switches.
+    <pause=2>"
   associatedAudio: []

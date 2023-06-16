@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 4
   m_EditorClassIdentifier: 
+  speakerName: Voice through radio
   dialogueLines:
   - "Please reconsider. I know you\u2019ll die if you don\u2019t repair it, but think
     about the amount of people that will live if you end the war right here. Wouldn\u2019t
-    that be a worthy death?"
+    that be a worthy death? <pause=2>"
   associatedAudio: []

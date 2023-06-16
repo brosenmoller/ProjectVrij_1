@@ -16,5 +16,5 @@ MonoBehaviour:
   dialogueLines:
   - Comparing it to these boring bleak and grey walls, in a building made to keep
     the war machine turning. This place might even be better the way it is in the
-    future, don't you think?
+    future, don't you think? <pause=2>
   associatedAudio: []

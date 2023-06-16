@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 6
   m_EditorClassIdentifier: 
+  speakerName: Voice through radio
   dialogueLines:
   - "Thank you. I know it must be hard to sacrifice yourself like this. Lots of people
     will live because of you. I- I\u2019ll definitely remember you. It\u2019s the
-    least I can do."
+    least I can do. <pause=2>"
   associatedAudio: []

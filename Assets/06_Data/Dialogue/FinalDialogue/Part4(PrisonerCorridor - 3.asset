@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part4(PrisonerCorridor - 3
   m_EditorClassIdentifier: 
+  speakerName: Prisoner 1
   dialogueLines:
   - "What was that announcement? Oh no. I don\u2019t want to die. Wait, you look
     like an engineer. Are you here to fix the generator? We will all die if you don\u2019t.
-    Please save us!"
+    Please save us! <pause=2>"
   associatedAudio: []

@@ -18,6 +18,5 @@ MonoBehaviour:
     essential that you find a way to fix it. Otherwise this entire base might blow
     up. This base holds prisoners of war and essential resources for the war effort.
     If those are gone it will result in a diplomatic and military disaster. We cannot
-    let that happen."
-  - "Hmmm that\u2019s.. odd. I- I need to go check on something."
+    let that happen. <pause=2>"
   associatedAudio: []

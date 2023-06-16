@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 1
   m_EditorClassIdentifier: 
+  speakerName: Voice through radio
   dialogueLines:
   - "I think I understand. In that version of the future you\u2019ve been seeing
     there never was a time warping engineer, so there was no one to repair the generator
     before it could explode. Which means that you hold the key to the future\u2026
-    You have to let it explode! It will end the war."
+    You have to let it explode! It will end the war. <pause=2>"
   associatedAudio: []

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 3
   m_EditorClassIdentifier: 
+  speakerName: Military base announcer
   dialogueLines:
   - "It\u2019s working! You can actually repair the damn thing. This won\u2019t be
-    a disaster after all! Our country will be eternally grateful to you"
+    a disaster after all! Our country will be eternally grateful to you. <pause=2>"
   associatedAudio: []

@@ -34147,7 +34147,7 @@ MonoBehaviour:
   defaultView: 1
   playButton: {fileID: 1238291354}
   settingsButton: {fileID: 1919069755}
-  quitButton: {fileID: 1919069755}
+  quitButton: {fileID: 428487704}
 --- !u!1 &1632781375
 GameObject:
   m_ObjectHideFlags: 0

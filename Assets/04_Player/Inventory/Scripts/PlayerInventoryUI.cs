@@ -37,15 +37,14 @@ public class PlayerInventoryUI : MonoBehaviour
 
     public void RemoveUIItem(Item item)
     {
-        if (!itemsInSlots.ContainsKey(item))
-        {
-            Destroy(itemsInSlots[item]);
-            itemsInSlots.Remove(item);
+        if (!itemsInSlots.ContainsKey(item)) { return; }
+        
+        Destroy(itemsInSlots[item]);
+        itemsInSlots.Remove(item);
 
-            if (itemsInSlots.Count == 0) 
-            {
-                inventoryBackground.enabled = false;
-            }
+        if (itemsInSlots.Count == 0) 
+        {
+            inventoryBackground.enabled = false;
         }
     }
 }

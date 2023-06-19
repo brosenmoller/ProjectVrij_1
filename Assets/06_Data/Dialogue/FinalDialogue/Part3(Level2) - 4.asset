@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 4
   m_EditorClassIdentifier: 
-  speakerName: Voice through radio
+  speakerName: Mysterious Voice
   dialogueLines:
   - "Ah I know! You\u2019ll have to flip three switches connected to those lights
-    above the door in order to open it."
+    above the door in order to open it. <pause=2>"
   associatedAudio: []

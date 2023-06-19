@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part2(Level1) - 6
   m_EditorClassIdentifier: 
-  speakerName: Military base announcer
+  speakerName: Military General
   dialogueLines:
   - "Great. You fixed the fuse box. But you\u2019re not done yet. I just heard there\u2019s
     something wrong with the generator. This could be disastrous, so please head
-    over there now to see what\u2019s going on.\u201D"
-  - "Well, you heard him! Let\u2019s head over there and see what\u2019s going on."
-  associatedAudio: []
+    over there now to see what\u2019s going on.\u201D <pause=2>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 83288731d8a8d464da4b9f1961de4c26, type: 2}

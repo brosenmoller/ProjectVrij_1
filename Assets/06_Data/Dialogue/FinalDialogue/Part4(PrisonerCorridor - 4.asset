@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part4(PrisonerCorridor - 4
   m_EditorClassIdentifier: 
+  speakerName: Prisoner 2
   dialogueLines:
   - "The base is exploding? That would end the war wouldn\u2019t it? You have to
     let the base explode. Please engineer, think about the amount of people that
-    will live if the war ends. I\u2019d gladly sacrifice myself for that cause."
+    will live if the war ends. I\u2019d gladly sacrifice myself for that cause. <pause=2>"
   associatedAudio: []

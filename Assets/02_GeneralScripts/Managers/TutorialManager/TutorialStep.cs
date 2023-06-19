@@ -22,7 +22,7 @@ public class TutorialStep : ScriptableObject
     {
         if (completionInput == InputType.OnMove)
         {
-            if(GameManager.InputManager.playerInputActions.PlayerActionMap.Walk.WasPerformedThisFrame())
+            if(GameManager.InputManager.playerInputActions.PlayerActionMap.Walk.IsPressed())
             {
                 Completed();
             }
@@ -30,7 +30,7 @@ public class TutorialStep : ScriptableObject
 
         else if (completionInput == InputType.OnJump)
         {
-            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.WasPerformedThisFrame())
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.IsPressed())
             {
                 Completed();
             }
@@ -38,7 +38,7 @@ public class TutorialStep : ScriptableObject
 
         else if (completionInput == InputType.OnInteract)
         {
-            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.WasPerformedThisFrame())
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.Interact.IsPressed())
             {
                 Completed();
             }
@@ -46,7 +46,7 @@ public class TutorialStep : ScriptableObject
 
         else if (completionInput == InputType.OnSwitchTime)
         {
-            if (GameManager.InputManager.playerInputActions.PlayerActionMap.TimeTravel.WasPerformedThisFrame())
+            if (GameManager.InputManager.playerInputActions.PlayerActionMap.TimeTravel.IsPressed())
             {
                 Completed();
             }

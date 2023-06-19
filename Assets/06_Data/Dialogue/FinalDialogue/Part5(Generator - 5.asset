@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 5
   m_EditorClassIdentifier: 
+  speakerName: Military General
   dialogueLines:
   - "Hey what are you doing! You\u2019re destroying it\u2026 But why? Come to your
     senses and stop this immediately! You\u2019ll die if that thing blows. YOU\u2019LL
-    DIE."
-  associatedAudio: []
+    DIE. <pause=2>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 4d375d88730749941b6247f3db0bd047, type: 2}

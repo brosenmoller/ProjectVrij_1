@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part1(Office) - 1
   m_EditorClassIdentifier: 
-  speakerName: Voice through radio
+  speakerName: Military General
   dialogueLines:
   - Is this thing on now? <pause=1> Good. <pause=1>
   - "I got another task for you. There\u2019s something wrong with the fuse box.
-    Please head over and take a look at it. <pause=1>"
-  associatedAudio: []
+    Please head over and take a look at it. <pause=2>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 18b4d82145ed3f94c973ab85cb014179, type: 2}

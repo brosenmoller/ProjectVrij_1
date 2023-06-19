@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
+    public bool canMove = true;
     [SerializeField] private float walkingSpeed = 7.5f;
     [SerializeField] private float runningSpeed = 11.5f;
     [SerializeField] private float jumpSpeed = 8.0f;
@@ -17,11 +18,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lookSpeed = 0.2f;
     [SerializeField] private float lookXLimit = 45.0f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSound;
+
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
 
-    [HideInInspector] public bool canMove = true;
+    public bool IsMoving { private set; get; } = false;
+    public bool IsSprinting { private set; get; } = false;
 
     private void Start()
     {
@@ -47,15 +52,19 @@ public class PlayerMovement : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
 
         Vector2 inputDirection = GameManager.InputManager.playerInputActions.PlayerActionMap.Walk.ReadValue<Vector2>();
+        
+        if (inputDirection != Vector2.zero) { IsMoving = true; }
+        else { IsMoving = false; }
 
-        bool isSprinting = GameManager.InputManager.playerInputActions.PlayerActionMap.Sprint.IsPressed();
-        float curSpeedX = (isSprinting ? runningSpeed : walkingSpeed) * inputDirection.y;
-        float curSpeedY = (isSprinting ? runningSpeed : walkingSpeed) * inputDirection.x;
+        IsSprinting = GameManager.InputManager.playerInputActions.PlayerActionMap.Sprint.IsPressed();
+        float curSpeedX = (IsSprinting ? runningSpeed : walkingSpeed) * inputDirection.y;
+        float curSpeedY = (IsSprinting ? runningSpeed : walkingSpeed) * inputDirection.x;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
         if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.WasPressedThisFrame() && canMove && characterController.isGrounded)
         {
+            jumpSound.Play();
             moveDirection.y = jumpSpeed;
         }
         else

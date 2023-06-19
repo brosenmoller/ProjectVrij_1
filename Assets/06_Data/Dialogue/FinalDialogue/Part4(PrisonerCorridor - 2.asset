@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part4(PrisonerCorridor - 2
   m_EditorClassIdentifier: 
+  speakerName: Mysterious Voice
   dialogueLines:
-  - "What? It\u2019s changing. The future is changing. Oh no."
+  - "What? It\u2019s changing. The future is changing. Oh no. <pause=2>"
   associatedAudio: []

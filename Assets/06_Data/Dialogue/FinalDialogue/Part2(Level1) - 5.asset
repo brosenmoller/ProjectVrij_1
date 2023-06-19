@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part2(Level1) - 5
   m_EditorClassIdentifier: 
-  speakerName: Voice through radio
+  speakerName: Mysterious Voice
   dialogueLines:
   - Comparing it to these boring bleak and grey walls, in a building made to keep
     the war machine turning. This place might even be better the way it is in the
-    future, don't you think?
+    future, don't you think? <pause=2>
   associatedAudio: []

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 2
   m_EditorClassIdentifier: 
-  speakerName: Voice through radio
+  speakerName: Mysterious Voice
   dialogueLines:
-  - "Oh it appears the emergency gate has closed. Well, I guess it\u2019s normal
-    for a military base like this to have things like this in place for when an emergency
-    occurs, but it\u2019s rather awkward when you have to get through in order to
-    deal with the emergency in the first place. "
+  - Oh it appears the emergency gate has closed. <pause=2>
+  - "Well, I guess it\u2019s normal for a military base like this to have things
+    like this in place for when an emergency occurs, but it\u2019s rather awkward
+    when you have to get through in order to deal with the emergency in the first
+    place. <pause=2>"
   associatedAudio: []

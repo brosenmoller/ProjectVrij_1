@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lookSpeed = 0.2f;
     [SerializeField] private float lookXLimit = 45.0f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSound;
+
+
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
@@ -56,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (GameManager.InputManager.playerInputActions.PlayerActionMap.Jump.WasPressedThisFrame() && canMove && characterController.isGrounded)
         {
+            jumpSound.Play();
             moveDirection.y = jumpSpeed;
         }
         else

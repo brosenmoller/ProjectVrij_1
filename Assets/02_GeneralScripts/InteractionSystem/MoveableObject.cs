@@ -15,6 +15,9 @@ public class MoveableObject : InteractableObject
     [SerializeField] private uint assignIndex = 0;
     [SerializeField] private Mesh mesh;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource onActivatedSound;
+
     private bool isDirectionForward = false;
     private int currentIndex = 0;
     private float animationDurationPerSegment;
@@ -65,6 +68,7 @@ public class MoveableObject : InteractableObject
 
     private void SetCorrectTransformAnimated()
     {
+        if (onActivatedSound != null) { onActivatedSound.Play(); }
         StopAllCoroutines();
         StartCoroutine(AnimateTransformValuesPath());
     }

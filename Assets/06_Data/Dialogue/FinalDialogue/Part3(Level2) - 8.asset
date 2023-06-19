@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 8
   m_EditorClassIdentifier: 
-  speakerName: Emergency Speaker
+  speakerName: Emergency Announcer
   dialogueLines:
   - Attention! Everyone evacuate the building! This is not a drill! The generator
     is unstable. Potential structural failure is imminent. <pause=2>
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 7b09e9f6dc050fb4dadf045e0d1b4eeb, type: 2}

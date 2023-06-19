@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part3(Level2) - 9
   m_EditorClassIdentifier: 
-  speakerName: Military base announcer
+  speakerName: Military General
   dialogueLines:
   - "Please ignore that announcement. That was just in case you\u2019re not able
     to fix it. Please head over to the generator as soon as possible. It\u2019s absolutely
     vital that you fix the generator. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: c0f9b6e92acd64e4bae3ed5a1442508a, type: 2}

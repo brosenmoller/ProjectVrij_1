@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 7
   m_EditorClassIdentifier: 
-  speakerName: Military base announcer
+  speakerName: Military General
   dialogueLines:
-  - "You fixed it! Thank you. You prevented a great disaster. I\u2019ll definitely
-    tell the others what you did and\u2026 <pause=2>"
-  associatedAudio: []
+  - You fixed it! Thank you. You prevented a great disaster.  <pause=2>
+  associatedAudio:
+  - {fileID: 11400000, guid: d195e16cbad73904682ef30b33de3d02, type: 2}

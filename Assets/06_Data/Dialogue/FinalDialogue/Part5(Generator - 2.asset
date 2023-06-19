@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972145f92c12b84a8be0a3e64cfbad4, type: 3}
   m_Name: Part5(Generator - 2
   m_EditorClassIdentifier: 
-  speakerName: Military base announcer
+  speakerName: Military General
   dialogueLines:
   - Engineer are you here? Good. You have to fix it. Otherwise we will lose the war
     and you and all those prisoners will die. <pause=2>
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: ceca634a54b7d7848b9e19de4c9f2cb2, type: 2}

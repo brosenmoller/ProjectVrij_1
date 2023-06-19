@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
         SaveManager = new SaveManager();
         EventManager = new EventManager();
         InputManager = new InputManager();
-        UIViewManager = new UIViewManager();
         DialogueManager = new DialogueManager();
         TutorialManager = new TutorialManager();
+        UIViewManager = new UIViewManager();
 
         activeManagers = new Manager[] {
             AudioManager,
@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
             SaveManager,
             EventManager,
             InputManager,
-            UIViewManager,
             DialogueManager,
             TutorialManager,
+            UIViewManager,
         };
 
         foreach (Manager manager in activeManagers)

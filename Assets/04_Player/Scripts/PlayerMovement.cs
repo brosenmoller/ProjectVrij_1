@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
+    public bool canMove = true;
     [SerializeField] private float walkingSpeed = 7.5f;
     [SerializeField] private float runningSpeed = 11.5f;
     [SerializeField] private float jumpSpeed = 8.0f;
@@ -20,12 +21,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource jumpSound;
 
-
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
-
-    [HideInInspector] public bool canMove = true;
 
     public bool IsMoving { private set; get; } = false;
     public bool IsSprinting { private set; get; } = false;

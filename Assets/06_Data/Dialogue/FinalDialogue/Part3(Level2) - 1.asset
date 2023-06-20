@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Mysterious Voice
   dialogueLines:
-  - "Oh it appears the emergency gate has closed. Well, I guess it\u2019s normal
-    for a military base like this to have things like this in place for when an emergency
-    occurs, but it\u2019s rather awkward when you have to get through in order to
-    deal with the emergency in the first place. <pause=2>"
-  associatedAudio: []
+  - Oh it appears the emergency gate has closed.  <pause=1>
+  - "Well, I guess it\u2019s normal for a military base like this to have things
+    like this in place for when an emergency occurs, but it\u2019s rather awkward
+    when you have to get through in order to deal with the emergency in the first
+    place. <pause=1>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 8b89dde14cc51554f939c4a00dea9b24, type: 2}

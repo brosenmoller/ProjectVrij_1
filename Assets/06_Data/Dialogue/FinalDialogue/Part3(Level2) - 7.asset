@@ -15,4 +15,5 @@ MonoBehaviour:
   speakerName: Mysterious Voice
   dialogueLines:
   - "Hmmm that\u2019s.. odd. I- I need to go check on something. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 3c4bb7f669dbcf04fa227bc74f29d1bc, type: 2}

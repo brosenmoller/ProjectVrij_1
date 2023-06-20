@@ -19,4 +19,5 @@ MonoBehaviour:
   - "But we have to get inside of that room in order to fix those problems in the
     first place. But I think I might know another way in. Why don\u2019t you use
     that mysterious power again! <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: ea5b6f8e7b20d664c9c4a6f8084be596, type: 2}

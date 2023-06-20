@@ -16,4 +16,5 @@ MonoBehaviour:
   dialogueLines:
   - "Well, you heard him! Let\u2019s head over there and see what\u2019s going on.
     <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 0a9087b7b8c15be44b85efa95b471e46, type: 2}

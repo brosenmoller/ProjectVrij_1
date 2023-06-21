@@ -17,5 +17,5 @@ MonoBehaviour:
     type: 2}
   loop: 0
   PlayOnAwake: 0
-  volume: 1
+  volume: 0.5
   pitch: 1

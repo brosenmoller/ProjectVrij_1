@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KeyCodeGenerator
   m_EditorClassIdentifier: 
   itemName: Keycode
-  UISprite: {fileID: 21300000, guid: 9a235474413e1f349b010b461c76efac, type: 3}
+  UISprite: {fileID: 21300000, guid: 843901fb08ce7364497f509fb065d509, type: 3}

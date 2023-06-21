@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1e7dff76769ac4b933a1f1d671b4d3, type: 3}
   m_Name: MysteriousVoiceLine13
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2f60542137ab8244fb0f6b6aac94d0fa, type: 3}
+  clip: {fileID: 8300000, guid: 2900c3ffc0f6313489321cfbb384bccb, type: 3}
   audioMixerGroup: {fileID: 1821166397355852763, guid: 9a1dc856e5381b64c80e30dbd1f53ab2,
     type: 2}
   loop: 0

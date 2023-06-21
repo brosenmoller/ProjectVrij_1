@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Military General
   dialogueLines:
-  - Is this thing on now? <pause=1> Good. <pause=1>
+  - Is this thing on now? <pause=0.5> Good. <pause=0.5>
   - "I got another task for you. There\u2019s something wrong with the fuse box.
     Please head over and take a look at it. <pause=2>"
   associatedAudio:

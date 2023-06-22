@@ -17,4 +17,5 @@ MonoBehaviour:
   - "What was that announcement? Oh no. I don\u2019t want to die. Wait, you look
     like an engineer. Are you here to fix the generator? We will all die if you don\u2019t.
     Please save us! <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 0}

@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
 
+    public void SetCanMove(bool value) => canMove = value;
+
     public bool IsMoving { private set; get; } = false;
     public bool IsSprinting { private set; get; } = false;
 

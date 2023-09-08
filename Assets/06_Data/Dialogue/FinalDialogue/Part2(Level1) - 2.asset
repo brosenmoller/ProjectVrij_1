@@ -16,4 +16,5 @@ MonoBehaviour:
   dialogueLines:
   - "Great, great, let\u2019s get going! First you\u2019ll have to get back to the
     present.<pause=3>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 6dba3880b5a51514c8ceb82ddf9430c0, type: 2}

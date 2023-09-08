@@ -16,4 +16,5 @@ MonoBehaviour:
   dialogueLines:
   - "Ah, bummer. I was hoping you would be able to pass through this way, but I guess
     it\u2019s not so easy. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: d4b809aefdd209341afbefd78d0010ac, type: 2}

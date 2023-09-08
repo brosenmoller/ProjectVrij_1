@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Military General
   dialogueLines:
   - "Hey what are you doing! You\u2019re destroying it\u2026 But why? Come to your
-    senses and stop this immediately! You\u2019ll die if that thing blows. YOU\u2019LL
-    DIE. <pause=2>"
+    senses and stop this immediately! <pause=0.5> You\u2019ll die if that thing blows.
+    <pause=1>YOU\u2019LL DIE. <pause=2>"
   associatedAudio:
   - {fileID: 11400000, guid: 4d375d88730749941b6247f3db0bd047, type: 2}

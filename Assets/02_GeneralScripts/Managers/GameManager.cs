@@ -105,5 +105,15 @@ public class GameManager : MonoBehaviour
     {
         TutorialManager.QueueTutorial(tutorialStep);
     }
+
+    public void PlaySound(AudioObject audioObject)
+    {
+        audioObject.Play();
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
 }
 

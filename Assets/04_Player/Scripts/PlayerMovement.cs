@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = 20.0f;
 
     [Header("Camera Settings")]
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private Transform playerCamera;
     [SerializeField] private float lookSpeed = 0.2f;
     [SerializeField] private float lookXLimit = 45.0f;
 
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
+
+    public void SetCanMove(bool value) => canMove = value;
 
     public bool IsMoving { private set; get; } = false;
     public bool IsSprinting { private set; get; } = false;
@@ -89,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         rotationX += -GameManager.InputManager.playerInputActions.PlayerActionMap.MoveCameraY.ReadValue<float>() * lookSpeed;
         rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        playerCamera.localRotation = Quaternion.Euler(rotationX, 0, 0);
         transform.rotation *= Quaternion.Euler(0, GameManager.InputManager.playerInputActions.PlayerActionMap.MoveCameraX.ReadValue<float>() * lookSpeed, 0);
     }
 

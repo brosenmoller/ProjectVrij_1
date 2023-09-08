@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUIView : UIView
@@ -19,17 +20,47 @@ public class GameUIView : UIView
         Color startColor = blackScreen.color;
         Color endColor = Color.clear;
 
+        bool hasStartedGame = false;
+
         float time = 0f;
         while (time <= 1f)
         {
             time += Time.deltaTime / fadeDuration;
             blackScreen.color = Color.Lerp(startColor, endColor, time);
+
+            if (time >= .7f && !hasStartedGame)
+            {
+                hasStartedGame = true;
+                startSequence.Play();
+                playerMovement.canMove = true;
+            }
+
             yield return null;
         }
-
-        playerMovement.canMove = true;
-        startSequence.Play();
+        
         blackScreen.gameObject.SetActive(false);
+    }
+
+    public void StartFadeInBlackScreen()
+    {
+        StartCoroutine(FadeInBlackScreen());
+    }
+
+    private IEnumerator FadeInBlackScreen()
+    {
+        Color startColor = Color.clear;
+        Color endColor = Color.black;
+
+        blackScreen.gameObject.SetActive(true);
+
+        float time = 0f;
+        while (time <= 1f)
+        {
+            time += Time.deltaTime / fadeDuration;
+            blackScreen.color = Color.Lerp(startColor, endColor, time);
+
+            yield return null;
+        }
     }
 
     //public override void Initialize()

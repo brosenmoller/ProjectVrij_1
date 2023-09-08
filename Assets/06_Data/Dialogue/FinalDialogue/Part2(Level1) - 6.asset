@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Military General
   dialogueLines:
-  - "Great. You fixed the fuse box. But you\u2019re not done yet. I just heard there\u2019s
-    something wrong with the generator. This could be disastrous, so please head
-    over there now to see what\u2019s going on.\u201D <pause=2>"
+  - "Great. You fixed the fuse box. <pause=1><speed=30> But you\u2019re not done
+    yet. I just heard there\u2019s something wrong with the generator. This could
+    be disastrous, so please head over there now to see what\u2019s going on. <pause=3><speed=20>"
   associatedAudio:
   - {fileID: 11400000, guid: 83288731d8a8d464da4b9f1961de4c26, type: 2}

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Mysterious Voice
   dialogueLines:
-  - "I know you might think this is not an ideal future, but it\u2019s actually really
-    neat. The war you\u2019re in right now abruptly ends and this base is destroyed.
-    People then come here to make art and celebrate freedom and peace! <pause=2>"
-  associatedAudio: []
+  - "I know you might think this is not an ideal future,<pause=1><speed=15> but it\u2019s
+    actually really neat. The war you\u2019re in right now abruptly ends and this
+    base is destroyed. People then come here to make art and celebrate freedom and
+    peace! <pause=2><speed=20>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 0d7bc77072d382649be647eacf17fbe7, type: 2}

@@ -16,4 +16,5 @@ MonoBehaviour:
   dialogueLines:
   - "Ah I know! You\u2019ll have to flip three switches connected to those lights
     above the door in order to open it. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 1bf60d3d8c34d7f4e97e8c8dec3b32c3, type: 2}

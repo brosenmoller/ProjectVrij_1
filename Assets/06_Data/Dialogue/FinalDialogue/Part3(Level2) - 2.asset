@@ -19,4 +19,5 @@ MonoBehaviour:
     like this in place for when an emergency occurs, but it\u2019s rather awkward
     when you have to get through in order to deal with the emergency in the first
     place. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 8b89dde14cc51554f939c4a00dea9b24, type: 2}

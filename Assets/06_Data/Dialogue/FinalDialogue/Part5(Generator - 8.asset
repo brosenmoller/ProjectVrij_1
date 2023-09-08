@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Mysterious Voice
   dialogueLines:
-  - Thank you. <pause=2>
-  associatedAudio: []
+  - Thank you for trusting me. <pause=3>
+  associatedAudio:
+  - {fileID: 11400000, guid: 4ce20aaf06c3f7d4d95ddb06424534cd, type: 2}

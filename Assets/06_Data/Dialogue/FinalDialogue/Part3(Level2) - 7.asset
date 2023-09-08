@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Mysterious Voice
   dialogueLines:
-  - "Hmmm that\u2019s.. odd. I- I need to go check on something. <pause=2>"
-  associatedAudio: []
+  - "Hmmm that\u2019s.. <pause=1> odd. <pause=1>I-<pause=1>I need to go check on
+    something. <pause=2>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 3c4bb7f669dbcf04fa227bc74f29d1bc, type: 2}

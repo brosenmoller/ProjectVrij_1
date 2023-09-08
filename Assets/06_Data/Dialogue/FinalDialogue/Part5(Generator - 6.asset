@@ -15,6 +15,7 @@ MonoBehaviour:
   speakerName: Mysterious Voice
   dialogueLines:
   - "Thank you. I know it must be hard to sacrifice yourself like this. Lots of people
-    will live because of you. I- I\u2019ll definitely remember you. It\u2019s the
-    least I can do. <pause=2>"
-  associatedAudio: []
+    will live because of you. I- <pause=1> I\u2019ll definitely remember you. It\u2019s
+    the least I can do. <pause=2>"
+  associatedAudio:
+  - {fileID: 11400000, guid: 28d1e9b08ec26224fba4563e492ba02b, type: 2}

@@ -18,4 +18,5 @@ MonoBehaviour:
     and all that. <pause=2>"
   - "But- <pause=1> I can help you out! Just pick up this radio and I\u2019ll tell
     you what to do. <pause=2>"
-  associatedAudio: []
+  associatedAudio:
+  - {fileID: 11400000, guid: 4bf1487aa606c304386ab28eadb7dbfb, type: 2}

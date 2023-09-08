@@ -15,9 +15,9 @@ MonoBehaviour:
   speakerName: Military General
   dialogueLines:
   - "I just heard the generator is becoming really unstable. It\u2019s absolutely
-    essential that you find a way to fix it. Otherwise this entire base might blow
-    up. This base holds prisoners of war and essential resources for the war effort.
-    If those are gone it will result in a diplomatic and military disaster. We cannot
-    let that happen. <pause=2>"
+    essential that you find a way to fix it. <pause=1.5>"
+  - Otherwise this entire base might blow up. This base holds prisoners of war and
+    essential resources for the war effort. If those are gone it will result in a
+    diplomatic and military disaster. We cannot let that happen. <pause=2>
   associatedAudio:
   - {fileID: 11400000, guid: 63a8ccc299051184e9d1ce11594bd8ed, type: 2}
